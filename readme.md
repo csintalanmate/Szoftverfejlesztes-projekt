@@ -1,0 +1,1 @@
+Ez a projekt egy kaszinó alkalmazás Szoftverfejlesztés tárgya, amely Spring Boot, JavaFX, JPA és Hibernate technológiákat használ.

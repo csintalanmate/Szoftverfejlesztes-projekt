@@ -1,0 +1,2 @@
+Ez a csomag tartalmazza az adatmodelljeinket, azokat az osztályokat, amelyek a játékosok, fogadások és egyéb kaszinóelemek tulajdonságait és viselkedését határozzák meg.
+JPA Entity osztályok is megtalálhatók itt, amelyek az adatbázis táblákat képviselik.

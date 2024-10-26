@@ -1,0 +1,1 @@
+Az üzleti logikáért felelős szolgáltatásréteget tartalmazza. Minden olyan funkciót itt valósítunk meg, amely az alkalmazás működéséhez szükséges logikát biztosítja, például fogadások feldolgozása, játékosok kezelése stb.

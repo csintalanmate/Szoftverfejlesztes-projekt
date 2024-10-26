@@ -1,0 +1,2 @@
+A JavaFX-hez kapcsolódó komponensek találhatók itt, például a különböző UI-elem konfigurációk és grafikus felülethez tartozó segédfüggvények.
+Ez a csomag biztosítja a vizuális elemek megjelenítését és interaktív működését.

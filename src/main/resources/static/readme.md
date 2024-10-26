@@ -1,0 +1,1 @@
+A statikus erőforrások, például CSS, képek vagy JavaScript fájlok számára fenntartott mappa, amelyek az alkalmazás vizuális megjelenését javítják.

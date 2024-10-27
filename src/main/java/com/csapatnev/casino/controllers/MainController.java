@@ -1,4 +1,4 @@
-package com.csapatnev.casino;
+package com.csapatnev.casino.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

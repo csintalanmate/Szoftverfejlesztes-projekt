@@ -4,14 +4,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.MainController">
    <children>
       <Button fx:id="gameSelector" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToRoulette" text="Roulette">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" text="Spin">
+      <Button fx:id="gameSelector1" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#switchToSlot" text="Spin">
          <font>
             <Font size="27.0" />
          </font>

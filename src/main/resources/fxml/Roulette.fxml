@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.RouletteController">
+   <children>
+      <Group fx:id="polygonGroup" layoutX="450.0" layoutY="350.0">
+         <children>
+      
+             <Polygon fill="BLACK" points=" -2.0682310711021444e-11,200.0,-33.80016406439242,197.12318206953782,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -33.80016406439242,197.12318206953782,-66.62795894843522,188.57548909220844,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -66.62795894843522,188.57548909220844,-97.53898876275082,174.60282263222427,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -97.53898876275082,174.60282263222427,-125.6439994591515,155.6071508636693,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -125.6439994591515,155.6071508636693,-150.13446105056587,132.1349446779924,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -150.13446105056587,132.1349446779924,-170.30582754668012,104.86145671141729,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -170.30582754668012,104.86145671141729,-185.57780545931544,74.57129555602795,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -185.57780545931544,74.57129555602795,-195.5110477895454,42.135853999107525,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -195.5110477895454,42.135853999107525,-199.81979324093803,8.488240639188884,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -199.81979324093803,8.488240639188884,-198.3800870517699,-25.403563949418512,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -198.3800870517699,-25.403563949418512,-191.23334694783688,-58.5645542553535,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -191.23334694783688,-58.5645542553535,-178.58517162989227,-90.04074896357717,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -178.58517162989227,-90.04074896357717,-160.7994260733585,-118.92663526089737,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -160.7994260733585,-118.92663526089737,-138.38777379547167,-144.3912187909409,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -138.38777379547167,-144.3912187909409,-111.99495722747415,-165.70192984879878,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -111.99495722747415,-165.70192984879878,-82.38024964874711,-182.2456980776504,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" -82.38024964874711,-182.2456980776504,-50.39561227696828,-193.54658938671454,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" -50.39561227696828,-193.54658938671454,-16.961184895041203,-199.27949770851046,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="GREEN" points=" -16.961184895041203,-199.27949770851046,16.96118489516467,-199.27949770849995,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 16.96118489516467,-199.27949770849995,50.3956122770882,-193.5465893866833,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 50.3956122770882,-193.5465893866833,82.38024964886002,-182.24569807759934,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 82.38024964886002,-182.24569807759934,111.99495722757682,-165.7019298487294,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 111.99495722757682,-165.7019298487294,138.38777379556115,-144.39121879085513,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 138.38777379556115,-144.39121879085513,160.79942607343227,-118.92663526079761,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 160.79942607343227,-118.92663526079761,178.58517162994815,-90.04074896346637,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 178.58517162994815,-90.04074896346637,191.23334694787323,-58.56455425523484,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 191.23334694787323,-58.56455425523484,198.38008705178564,-25.40356394929551,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 198.38008705178564,-25.40356394929551,199.81979324093277,8.48824063931269,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 199.81979324093277,8.48824063931269,195.51104778951927,42.135853999228665,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 195.51104778951927,42.135853999228665,185.57780545926923,74.57129555614293,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 185.57780545926923,74.57129555614293,170.3058275466152,104.86145671152273,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 170.3058275466152,104.86145671152273,150.13446105048413,132.13494467808528,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 150.13446105048413,132.13494467808528,125.64399945905522,155.60715086374702,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 125.64399945905522,155.60715086374702,97.5389887626428,174.6028226322846,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 97.5389887626428,174.6028226322846,66.6279589483186,188.57548909224965,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="BLACK" points=" 66.6279589483186,188.57548909224965,33.800164064270504,197.1231820695587,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+             <Polygon fill="RED" points=" 33.800164064270504,197.1231820695587,-2.0682310711021444e-11,200.0,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Button fx:id="btnSwitchToMain" layoutX="53.0" layoutY="51.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu" />
+      <Text fx:id="rollText" layoutX="370.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="160.79942321777332">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnRoll" layoutX="757.0" layoutY="51.0" mnemonicParsing="false" onAction="#Roll" prefHeight="26.0" prefWidth="67.0" text="Roll" />
+
+
+
+   </children>
+</AnchorPane>

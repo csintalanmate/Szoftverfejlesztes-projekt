@@ -28,8 +28,7 @@ public class LoginController implements Initializable {
     private final UserService userService;
 
     @Autowired
-    public LoginController (UserService userService)
-    {
+    public LoginController(UserService userService) {
         this.userService = userService;
     }
 
@@ -56,6 +55,16 @@ public class LoginController implements Initializable {
         } else {
             showAlert("Error", "Invalid email or password.");
         }
+    }
+
+    @FXML
+    public void switchToMain() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+        loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
+        Parent signUpRoot = loader.load();
+
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.setScene(new Scene(signUpRoot));
     }
 
     @FXML

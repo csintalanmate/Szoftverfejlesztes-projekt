@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public LoginController (UserService userService)

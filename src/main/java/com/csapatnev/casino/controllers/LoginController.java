@@ -45,12 +45,13 @@ public class LoginController implements Initializable {
     private Button btnSignUp;
 
     @FXML
-    public void login(ActionEvent event) {
+    public void login(ActionEvent event) throws IOException {
         String emailText = email.getText();
         String passwordText = password.getText();
 
         if (userService.authenticate(emailText, passwordText)) {
             showAlert("Success", "Login successful!");
+            switchToMain();
              // Switch to the main application scene
         } else {
             showAlert("Error", "Invalid email or password.");

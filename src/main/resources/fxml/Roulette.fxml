@@ -492,6 +492,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <Rectangle fx:id="evenRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <Rectangle fx:id="oddRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="3" />
+            <Rectangle fx:id="redRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="1" />
+            <Rectangle fx:id="blackRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="2" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="EVEN" textAlignment="CENTER" wrappingWidth="101.33673095703125">
                <font>
                   <Font name="Arial Bold" size="32.0" />
@@ -511,12 +515,29 @@
             <Font size="29.0" />
          </font>
       </Text>
-      <Circle fx:id="TokenCircle" fill="DODGERBLUE" layoutX="657.0" layoutY="645.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text fx:id="tokenText" layoutX="712.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="tokenText" layoutX="1108.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="29.0" />
          </font>
       </Text>
+      <Text fx:id="balanceText" layoutX="1108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="balanceText1" layoutX="936.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="betAmountText" layoutX="936.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet Amount:">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Circle fx:id="tokenStash" fill="#945d26" layoutX="657.0" layoutY="641.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="TokenCircle" fill="#1f93ff" layoutX="657.0" layoutY="641.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="token100Text" layoutX="646.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" />
 
 
 

@@ -515,11 +515,6 @@
             <Font size="29.0" />
          </font>
       </Text>
-      <Text fx:id="tokenText" layoutX="1108.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Text>
       <Text fx:id="balanceText" layoutX="1108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="29.0" />
@@ -538,6 +533,11 @@
       <Circle fx:id="tokenStash" fill="#945d26" layoutX="657.0" layoutY="641.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="TokenCircle" fill="#1f93ff" layoutX="657.0" layoutY="641.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
       <Text fx:id="token100Text" layoutX="646.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" />
+      <Text fx:id="tokenText" layoutX="1108.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
 
 
 

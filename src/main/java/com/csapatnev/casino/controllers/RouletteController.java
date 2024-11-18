@@ -224,6 +224,9 @@ public class RouletteController {
     @FXML
     public void initialize() {
 
+        blacktext.setText("");
+        betOnBox = "";
+
         TokenCircle.setOnMousePressed(event -> handleMousePressed(event, TokenCircle));
         TokenCircle.setOnMouseDragged(event -> handleMouseDragged(event, TokenCircle, blacktext));
         updateBalance();
@@ -348,7 +351,7 @@ public class RouletteController {
 
 
         int randomNumber = getRandomNumber();
-        randomNumber = 6;
+        //randomNumber = 6; //teszt
 
 
         double turnWheel = randomNumber * 9.7297297297 + 360;
@@ -517,13 +520,13 @@ public class RouletteController {
     {
         if(betOnBox.equals(String.valueOf(randomNumber)))
         {
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*38;
         }
         else if(redNumbers.contains(String.valueOf(randomNumber)) && betOnBox.equals("red"))
         {
             redRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*2;
             if(randomNumber % 2 == 1)
             {
@@ -537,7 +540,7 @@ public class RouletteController {
         else if(blackNumbers.contains(String.valueOf(randomNumber)) && betOnBox.equals("black"))
         {
             blackRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*2;
             if(randomNumber % 2 == 1)
             {
@@ -551,18 +554,19 @@ public class RouletteController {
         else if(betOnBox.equals("odd") && randomNumber % 2 == 1)
         {
             oddRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*2;
         }
         else if(betOnBox.equals("even") && randomNumber % 2 == 0)
         {
             evenRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*2;
-        }
-        else
+        } else if (tokenText.getX() == 0)
         {
-            tokenText.setText("Vesztettél");
+            blacktext.setText("");
+        } else {
+            blacktext.setText("Vesztettél");
 
         }
         updateBalance();

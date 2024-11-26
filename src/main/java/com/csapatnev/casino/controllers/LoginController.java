@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
     @FXML
     public void switchToAdmin() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Admin.fxml"));
-        loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
+        loader.setControllerFactory(AppContextProvider::getBean);
         Parent adminRoot = loader.load();
 
         Stage stage = (Stage) btnLogin.getScene().getWindow();

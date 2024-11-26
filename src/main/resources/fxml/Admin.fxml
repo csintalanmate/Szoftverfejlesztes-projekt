@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.csapatnev.casino.controllers.AdminController"
-            prefHeight="500.0" prefWidth="800.0">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.AdminController">
 
     <!-- TableView to list all users -->
-    <TableView fx:id="userTable" prefWidth="600" prefHeight="300" layoutX="100" layoutY="100">
+    <TableView fx:id="userTable" layoutX="14.0" layoutY="14.0" prefHeight="335.0" prefWidth="781.0">
         <columns>
-            <TableColumn fx:id="columnId" text="ID" prefWidth="100" />
-            <TableColumn fx:id="columnFirstName" text="First Name" prefWidth="150" />
-            <TableColumn fx:id="columnLastName" text="Last Name" prefWidth="150" />
-            <TableColumn fx:id="columnEmail" text="Email" prefWidth="200" />
-            <TableColumn fx:id="columnDob" text="Date of Birth" prefWidth="150" />
+            <TableColumn fx:id="columnId" prefWidth="100" text="ID" />
+            <TableColumn fx:id="columnFirstName" prefWidth="100" text="First Name" />
+            <TableColumn fx:id="columnLastName" prefWidth="100" text="Last Name" />
+            <TableColumn fx:id="columnEmail" prefWidth="100" text="Email" />
+            <TableColumn fx:id="columnDob" prefWidth="100" text="Date of Birth" />
+            <TableColumn fx:id="columnPassword" prefWidth="96.0" text="Password" />
+            <TableColumn fx:id="columnGender" prefWidth="104.0" text="Gender" />
+            <TableColumn fx:id="columnRole" prefWidth="100" text="Role" />
+
         </columns>
     </TableView>
 
     <!-- Buttons for CRUD operations -->
-    <Button fx:id="btnCreate" text="Create" layoutX="100" layoutY="420" onAction="#createUser" />
-    <Button fx:id="btnUpdate" text="Update" layoutX="200" layoutY="420" onAction="#updateUser" />
-    <Button fx:id="btnDelete" text="Delete" layoutX="300" layoutY="420" onAction="#deleteUser" />
+    <Button fx:id="btnCreate" layoutX="285.0" layoutY="420.0" text="Create" />
+    <Button fx:id="btnUpdate" layoutX="374.0" layoutY="420.0" text="Update" />
+    <Button fx:id="btnDelete" layoutX="471.0" layoutY="420.0" text="Delete" />
 </AnchorPane>

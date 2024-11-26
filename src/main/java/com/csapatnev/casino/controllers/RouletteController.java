@@ -206,6 +206,8 @@ public class RouletteController {
     private Text token100Text;
     @FXML
     private Text balanceText;
+    @FXML
+    private Text zeroText;
 
     private double offsetX, offsetY;
     int startNumber = 0;
@@ -613,8 +615,13 @@ public class RouletteController {
         double tokenStashCenterY = tokenStash.getCenterY();
         double tokenStashRadius = tokenStash.getRadius();
 
-
-        if (checkDistance(circleCenterX,circleCenterY,376,45) <= circleRadius + circleRadius) {
+        if (checkDistance(circleCenterX,circleCenterY, 332,-158) <= circleRadius + circleRadius) {
+            circle.setCenterX(332);
+            circle.setCenterY(-158);
+            betOnBox = "0";
+            setToken100Text(circle.getCenterX(),circle.getCenterY());
+        }
+        else if (checkDistance(circleCenterX,circleCenterY,376,45) <= circleRadius + circleRadius) {
             circle.setCenterX(376);
             circle.setCenterY(45);
             betOnBox = "black";
@@ -933,9 +940,11 @@ public class RouletteController {
         }
         else {
             betOnBox = "";
+
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         blacktext.setText(betOnBox);
+        //blacktext.setText(String.valueOf(circle.getCenterX()) + String.valueOf(circle.getCenterY())); teszt
         if(!(checkDistance(circleCenterX,circleCenterY,0,0) <= circleRadius + circleRadius)&& !betPlaced)
         {
 

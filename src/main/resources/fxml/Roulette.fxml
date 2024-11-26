@@ -530,14 +530,20 @@
             <Font size="29.0" />
          </font>
       </Text>
+      <Polygon fx:id="zeroPanel" fill="GREEN" layoutX="985.0" layoutY="462.0" points="-40.20001220703125, 39.999969482421875, 43.800048828125, 39.999969482421875, 1.39996337890625, -5.199981689453125" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="zeroText" fill="WHITE" layoutX="979.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
       <Circle fx:id="tokenStash" fill="#945d26" layoutX="657.0" layoutY="641.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="TokenCircle" fill="#1f93ff" layoutX="657.0" layoutY="641.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text fx:id="token100Text" layoutX="646.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" />
       <Text fx:id="tokenText" layoutX="1108.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="29.0" />
          </font>
       </Text>
+      <Circle fx:id="TokenCircle" fill="#1f93ff" layoutX="657.0" layoutY="641.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="token100Text" layoutX="646.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" />
 
 
 

@@ -220,12 +220,16 @@ public class RouletteController {
     List<Rectangle> blackrect = new ArrayList<>();
     List<Rectangle> redrect = new ArrayList<>();
     List<Rectangle> transparentrect = new ArrayList<>();
+    boolean isOdd;
+    boolean isBlack;
+    int finalRandomNumber;
 
     @FXML
     public void initialize() {
 
         blacktext.setText("");
         betOnBox = "";
+
 
         TokenCircle.setOnMousePressed(event -> handleMousePressed(event, TokenCircle));
         TokenCircle.setOnMouseDragged(event -> handleMouseDragged(event, TokenCircle, blacktext));
@@ -362,7 +366,7 @@ public class RouletteController {
         rotateTransitionWheel.setCycleCount(1);
         rotateTransitionWheel.setAutoReverse(false); // No reverse
 
-        int finalRandomNumber = randomNumber + startNumber;
+        finalRandomNumber = randomNumber + startNumber;
         startNumber = finalRandomNumber;
         rotateTransitionWheel.setOnFinished(event -> {
 
@@ -376,7 +380,6 @@ public class RouletteController {
         rotateTransitionBall.setAutoReverse(true);
 
         rotateTransitionBall.setOnFinished(event -> {
-            // Get the current panel to update based on the number that was landed on
             switch (order[((finalRandomNumber * 2) % 37)]) {
                 case 0:
                     //winPanelColor(number0Panel, number0Rect);
@@ -492,6 +495,14 @@ public class RouletteController {
                 default:
                     break;
             }
+            if(blackNumbers.contains(String.valueOf(order[(finalRandomNumber*2)%37])))
+            {
+                isBlack = true;
+            }
+            if(redNumbers.contains(String.valueOf(order[(finalRandomNumber*2)%37])))
+            {
+                isBlack = false;
+            }
 
             checkForBet(order[(finalRandomNumber*2)%37]);
             updateBalance();
@@ -518,54 +529,59 @@ public class RouletteController {
 
     private void checkForBet(int randomNumber)
     {
-        if(betOnBox.equals(String.valueOf(randomNumber)))
+        if(order[(finalRandomNumber*2)%37] % 2 == 0)
+        {
+            evenRect.setFill(Color.YELLOW);
+        }
+        if(order[(finalRandomNumber*2)%37] % 2 == 1)
+        {
+            oddRect.setFill(Color.YELLOW);
+        }
+
+        if(betOnBox.equals(String.valueOf(order[(finalRandomNumber*2)%37])))
         {
             blacktext.setText("Nyertél");
             balance += betAmount*38;
         }
-        else if(redNumbers.contains(String.valueOf(randomNumber)) && betOnBox.equals("red"))
+        else if(redNumbers.contains(String.valueOf(order[(finalRandomNumber*2)%37])) && (!isBlack || betOnBox.equals("red")))
         {
             redRect.setFill(Color.YELLOW);
-            blacktext.setText("Nyertél");
-            balance += betAmount*2;
-            if(randomNumber % 2 == 1)
+            if(betOnBox.equals("red"))
             {
-                evenRect.setFill(Color.YELLOW);
+                blacktext.setText("Nyertél");
+                balance += betAmount*2;
             }
-            if(randomNumber % 2 == 0)
-            {
-                oddRect.setFill(Color.YELLOW);
-            }
+
         }
-        else if(blackNumbers.contains(String.valueOf(randomNumber)) && betOnBox.equals("black"))
+        else if(blackNumbers.contains(String.valueOf(order[(finalRandomNumber*2)%37])) && (isBlack || betOnBox.equals("black")))
         {
             blackRect.setFill(Color.YELLOW);
-            blacktext.setText("Nyertél");
-            balance += betAmount*2;
-            if(randomNumber % 2 == 1)
+            if(betOnBox.equals("black"))
             {
-                oddRect.setFill(Color.YELLOW);
+                blacktext.setText("Nyertél");
+                balance += betAmount*2;
             }
-            if(randomNumber % 2 == 0)
-            {
-                evenRect.setFill(Color.YELLOW);
-            }
+
+
         }
-        else if(betOnBox.equals("odd") && randomNumber % 2 == 1)
+        else if(betOnBox.equals("odd") && order[(finalRandomNumber*2)%37] % 2 == 1)
         {
             oddRect.setFill(Color.YELLOW);
             blacktext.setText("Nyertél");
             balance += betAmount*2;
         }
-        else if(betOnBox.equals("even") && randomNumber % 2 == 0)
+        else if(betOnBox.equals("even") && order[(finalRandomNumber*2)%37] % 2 == 0)
         {
             evenRect.setFill(Color.YELLOW);
             blacktext.setText("Nyertél");
             balance += betAmount*2;
-        } else if (tokenText.getX() == 0)
+        }
+        else if (tokenText.getX() == 0)
         {
             blacktext.setText("");
-        } else {
+        }
+        else
+        {
             blacktext.setText("Vesztettél");
 
         }
@@ -575,6 +591,7 @@ public class RouletteController {
     private void handleMousePressed(javafx.scene.input.MouseEvent event, Circle circle) {
         offsetX = event.getSceneX() - circle.getCenterX();
         offsetY = event.getSceneY() - circle.getCenterY();
+
     }
 
     String betOnBox;
@@ -582,6 +599,7 @@ public class RouletteController {
     private void handleMouseDragged(javafx.scene.input.MouseEvent event, Circle circle, Text blacktext) {
         double newX = event.getSceneX() - offsetX;
         double newY = event.getSceneY() - offsetY;
+
 
 
         circle.setCenterX(newX);
@@ -614,6 +632,7 @@ public class RouletteController {
             circle.setCenterX(176);
             circle.setCenterY(45);
             betOnBox = "even";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if (checkDistance(circleCenterX,circleCenterY,476,45) <= circleRadius + circleRadius)
@@ -621,6 +640,7 @@ public class RouletteController {
             circle.setCenterX(476);
             circle.setCenterY(45);
             betOnBox = "odd";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,76,-7) <= circleRadius + circleRadius)
@@ -628,6 +648,7 @@ public class RouletteController {
             circle.setCenterX(76);
             circle.setCenterY(-7);
             betOnBox = "1";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,76,-61) <= circleRadius + circleRadius)
@@ -635,6 +656,7 @@ public class RouletteController {
             circle.setCenterX(76);
             circle.setCenterY(-61);
             betOnBox = "2";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,76,-115) <= circleRadius + circleRadius)
@@ -642,6 +664,7 @@ public class RouletteController {
             circle.setCenterX(76);
             circle.setCenterY(-115);
             betOnBox = "3";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,121,-7) <= circleRadius + circleRadius)
@@ -649,6 +672,7 @@ public class RouletteController {
             circle.setCenterX(121);
             circle.setCenterY(-7);
             betOnBox = "4";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,121,-61) <= circleRadius + circleRadius)
@@ -656,6 +680,7 @@ public class RouletteController {
             circle.setCenterX(121);
             circle.setCenterY(-61);
             betOnBox = "5";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,121,-115) <= circleRadius + circleRadius)
@@ -663,6 +688,7 @@ public class RouletteController {
             circle.setCenterX(121);
             circle.setCenterY(-115);
             betOnBox = "6";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,168,-7) <= circleRadius + circleRadius)
@@ -670,6 +696,7 @@ public class RouletteController {
             circle.setCenterX(168);
             circle.setCenterY(-7);
             betOnBox = "7";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,168,-61) <= circleRadius + circleRadius)
@@ -677,6 +704,7 @@ public class RouletteController {
             circle.setCenterX(168);
             circle.setCenterY(-61);
             betOnBox = "8";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,168,-115) <= circleRadius + circleRadius)
@@ -684,6 +712,7 @@ public class RouletteController {
             circle.setCenterX(168);
             circle.setCenterY(-115);
             betOnBox = "9";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,215,-7) <= circleRadius + circleRadius)
@@ -691,6 +720,7 @@ public class RouletteController {
             circle.setCenterX(215);
             circle.setCenterY(-7);
             betOnBox = "10";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,215,-61) <= circleRadius + circleRadius)
@@ -698,6 +728,7 @@ public class RouletteController {
             circle.setCenterX(215);
             circle.setCenterY(-61);
             betOnBox = "11";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,215,-115) <= circleRadius + circleRadius)
@@ -705,6 +736,7 @@ public class RouletteController {
             circle.setCenterX(215);
             circle.setCenterY(-115);
             betOnBox = "12";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,262,-7) <= circleRadius + circleRadius)
@@ -712,6 +744,7 @@ public class RouletteController {
             circle.setCenterX(262);
             circle.setCenterY(-7);
             betOnBox = "13";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,262,-61) <= circleRadius + circleRadius)
@@ -719,6 +752,7 @@ public class RouletteController {
             circle.setCenterX(262);
             circle.setCenterY(-61);
             betOnBox = "14";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,262,-115) <= circleRadius + circleRadius)
@@ -726,6 +760,7 @@ public class RouletteController {
             circle.setCenterX(262);
             circle.setCenterY(-115);
             betOnBox = "15";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,309,-7) <= circleRadius + circleRadius)
@@ -733,6 +768,7 @@ public class RouletteController {
             circle.setCenterX(309);
             circle.setCenterY(-7);
             betOnBox = "16";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,309,-61) <= circleRadius + circleRadius)
@@ -740,6 +776,7 @@ public class RouletteController {
             circle.setCenterX(309);
             circle.setCenterY(-61);
             betOnBox = "17";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,309,-115) <= circleRadius + circleRadius)
@@ -747,6 +784,7 @@ public class RouletteController {
             circle.setCenterX(309);
             circle.setCenterY(-115);
             betOnBox = "18";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,355,-7) <= circleRadius + circleRadius)
@@ -754,6 +792,7 @@ public class RouletteController {
             circle.setCenterX(355);
             circle.setCenterY(-7);
             betOnBox = "19";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,355,-61) <= circleRadius + circleRadius)
@@ -761,6 +800,7 @@ public class RouletteController {
             circle.setCenterX(355);
             circle.setCenterY(-61);
             betOnBox = "20";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,355,-115) <= circleRadius + circleRadius)
@@ -768,6 +808,7 @@ public class RouletteController {
             circle.setCenterX(355);
             circle.setCenterY(-115);
             betOnBox = "21";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,401,-7) <= circleRadius + circleRadius)
@@ -775,6 +816,7 @@ public class RouletteController {
             circle.setCenterX(401);
             circle.setCenterY(-7);
             betOnBox = "22";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,401,-61) <= circleRadius + circleRadius)
@@ -782,6 +824,7 @@ public class RouletteController {
             circle.setCenterX(401);
             circle.setCenterY(-61);
             betOnBox = "23";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,401,-115) <= circleRadius + circleRadius)
@@ -789,6 +832,7 @@ public class RouletteController {
             circle.setCenterX(401);
             circle.setCenterY(-115);
             betOnBox = "24";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,447,-7) <= circleRadius + circleRadius)
@@ -796,6 +840,7 @@ public class RouletteController {
             circle.setCenterX(447);
             circle.setCenterY(-7);
             betOnBox = "25";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,447,-61) <= circleRadius + circleRadius)
@@ -803,6 +848,7 @@ public class RouletteController {
             circle.setCenterX(447);
             circle.setCenterY(-61);
             betOnBox = "26";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,447,-115) <= circleRadius + circleRadius)
@@ -810,6 +856,7 @@ public class RouletteController {
             circle.setCenterX(447);
             circle.setCenterY(-115);
             betOnBox = "27";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,494,-7) <= circleRadius + circleRadius)
@@ -817,6 +864,7 @@ public class RouletteController {
             circle.setCenterX(494);
             circle.setCenterY(-7);
             betOnBox = "28";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,494,-61) <= circleRadius + circleRadius)
@@ -824,6 +872,7 @@ public class RouletteController {
             circle.setCenterX(494);
             circle.setCenterY(-61);
             betOnBox = "29";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,494,-115) <= circleRadius + circleRadius)
@@ -831,6 +880,7 @@ public class RouletteController {
             circle.setCenterX(494);
             circle.setCenterY(-115);
             betOnBox = "30";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,541,-7) <= circleRadius + circleRadius)
@@ -838,6 +888,7 @@ public class RouletteController {
             circle.setCenterX(541);
             circle.setCenterY(-7);
             betOnBox = "31";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,541,-61) <= circleRadius + circleRadius)
@@ -845,6 +896,7 @@ public class RouletteController {
             circle.setCenterX(541);
             circle.setCenterY(-61);
             betOnBox = "32";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,541,-115) <= circleRadius + circleRadius)
@@ -852,6 +904,7 @@ public class RouletteController {
             circle.setCenterX(541);
             circle.setCenterY(-115);
             betOnBox = "33";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,588,-7) <= circleRadius + circleRadius)
@@ -859,6 +912,7 @@ public class RouletteController {
             circle.setCenterX(588);
             circle.setCenterY(-7);
             betOnBox = "34";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,588,-61) <= circleRadius + circleRadius)
@@ -866,6 +920,7 @@ public class RouletteController {
             circle.setCenterX(588);
             circle.setCenterY(-61);
             betOnBox = "35";
+            isOdd = true;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else if(checkDistance(circleCenterX,circleCenterY,588,-115) <= circleRadius + circleRadius)
@@ -873,6 +928,7 @@ public class RouletteController {
             circle.setCenterX(588);
             circle.setCenterY(-115);
             betOnBox = "36";
+            isOdd = false;
             setToken100Text(circle.getCenterX(),circle.getCenterY());
         }
         else {
@@ -888,12 +944,12 @@ public class RouletteController {
             //tokenText.setText("100");
 
         }
-        if((checkDistance(tokenStashCenterX,tokenStashCenterY,(int)circleCenterX,(int)circleCenterY) <= tokenStashRadius + tokenStashRadius) && betPlaced)
+
+        else if((checkDistance(tokenStashCenterX,tokenStashCenterY,(int)circleCenterX,(int)circleCenterY) <= tokenStashRadius + tokenStashRadius) && betPlaced)
         {
             betPlaced = false;
             balance = balance + betAmount;
             tokenText.setText("0");
-
         }
 
         updateBalance();

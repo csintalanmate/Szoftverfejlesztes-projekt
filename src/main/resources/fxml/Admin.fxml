@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.csapatnev.casino.controllers.AdminController"
+            prefHeight="500.0" prefWidth="800.0">
+
+    <!-- TableView to list all users -->
+    <TableView fx:id="userTable" prefWidth="600" prefHeight="300" layoutX="100" layoutY="100">
+        <columns>
+            <TableColumn fx:id="columnId" text="ID" prefWidth="100" />
+            <TableColumn fx:id="columnFirstName" text="First Name" prefWidth="150" />
+            <TableColumn fx:id="columnLastName" text="Last Name" prefWidth="150" />
+            <TableColumn fx:id="columnEmail" text="Email" prefWidth="200" />
+            <TableColumn fx:id="columnDob" text="Date of Birth" prefWidth="150" />
+        </columns>
+    </TableView>
+
+    <!-- Buttons for CRUD operations -->
+    <Button fx:id="btnCreate" text="Create" layoutX="100" layoutY="420" onAction="#createUser" />
+    <Button fx:id="btnUpdate" text="Update" layoutX="200" layoutY="420" onAction="#updateUser" />
+    <Button fx:id="btnDelete" text="Delete" layoutX="300" layoutY="420" onAction="#deleteUser" />
+</AnchorPane>

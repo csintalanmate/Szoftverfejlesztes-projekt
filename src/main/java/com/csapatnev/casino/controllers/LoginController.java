@@ -49,13 +49,25 @@ public class LoginController implements Initializable {
         String emailText = email.getText();
         String passwordText = password.getText();
 
-        if (userService.authenticate(emailText, passwordText)) {
+        if (emailText.equals("admin@admin") && passwordText.equals("admin")) {
+            showAlert("Admin Login", "Welcome, Admin!");
+            switchToAdmin();
+        } else if (userService.authenticate(emailText, passwordText)) {
             showAlert("Success", "Login successful!");
-            switchToMain();
-             // Switch to the main application scene
+            switchToMain(); // Switch to the main application scene
         } else {
             showAlert("Error", "Invalid email or password.");
         }
+    }
+
+    @FXML
+    public void switchToAdmin() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Admin.fxml"));
+        loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
+        Parent adminRoot = loader.load();
+
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.setScene(new Scene(adminRoot));
     }
 
     @FXML

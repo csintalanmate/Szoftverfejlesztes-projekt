@@ -25,7 +25,6 @@ import java.util.Random;
 public class RouletteController {
 
 
-
     @FXML
     private Group polygonGroupBigRoulette;
 
@@ -333,6 +332,7 @@ public class RouletteController {
         Parent signUpRoot = loader.load();
         Stage stage = (Stage) btnSwitchToMain.getScene().getWindow();
         stage.setScene(new Scene(signUpRoot));
+        stage.centerOnScreen();
     }
 
 
@@ -585,6 +585,7 @@ public class RouletteController {
         if(betPlaced)
         {
             blacktext.setText("Vesztettél");
+
         }
         updateBalance();
     }
@@ -595,7 +596,6 @@ public class RouletteController {
         offsetY = event.getSceneY() - circle.getCenterY();
         isDragging = true;
     }
-
     private void handleMouseReleased(Circle circle) {
         isDragging = false;
         if(betOnBox.isEmpty())
@@ -610,7 +610,6 @@ public class RouletteController {
                 betPlaced = false;
             }
             updateBalance();
-
         }
 
     }

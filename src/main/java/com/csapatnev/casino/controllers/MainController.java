@@ -41,6 +41,7 @@ public class MainController {
 
         Stage stage = (Stage) gameSelector.getScene().getWindow();
         stage.setScene(new Scene(signUpRoot));
+        stage.centerOnScreen();
     }
 
     @FXML

@@ -1,5 +1,6 @@
 package com.csapatnev.casino.controllers;
 
+import com.csapatnev.casino.UserFX;
 import com.csapatnev.casino.models.User;
 import com.csapatnev.casino.services.UserService;
 import javafx.collections.FXCollections;
@@ -37,50 +38,52 @@ public class AdminController implements Initializable {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> columnDob;
+    private TableColumn<UserFX, Long> columnId;
 
     @FXML
-    private TableColumn<?, ?> columnEmail;
+    private TableColumn<UserFX, String> columnDob;
 
     @FXML
-    private TableColumn<?, ?> columnFirstName;
+    private TableColumn<UserFX, String> columnEmail;
 
     @FXML
-    private TableColumn<?, ?> columnGender;
+    private TableColumn<UserFX, String> columnFirstName;
 
     @FXML
-    private TableColumn<?, ?> columnId;
+    private TableColumn<UserFX, String> columnGender;
 
     @FXML
-    private TableColumn<?, ?> columnLastName;
+    private TableColumn<UserFX, String> columnLastName;
 
     @FXML
-    private TableColumn<?, ?> columnPassword;
+    private TableColumn<UserFX, String> columnPassword;
 
     @FXML
-    private TableColumn<?, ?> columnRole;
+    private TableColumn<UserFX, String> columnRole;
 
     @FXML
-    private TableView<User> userTable;
-
+    private TableView<UserFX> userTable;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<User> users = userService.findAll();  // Adjust this method as per your implementation
+        List<User> users = userService.findAll();  // Fetch users from the service
 
-        // Convert the list of users to an ObservableList
-        ObservableList<User> userObservableList = FXCollections.observableArrayList(users);
+        // Convert to UserFX for JavaFX binding
+        ObservableList<UserFX> userObservableList = FXCollections.observableArrayList();
+        for (User user : users) {
+            userObservableList.add(new UserFX(user));  // Convert User to UserFX
+        }
 
         // Set the user list to the table
         userTable.setItems(userObservableList);
 
-        // Set the cell value factories (mapping each column to the respective field in the User object)
+        // Set the cell value factories for UserFX
         columnId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         columnFirstName.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         columnLastName.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         columnEmail.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-        columnDob.setCellValueFactory(cellData -> cellData.getValue().dobProperty());
+        columnDob.setCellValueFactory(cellData -> cellData.getValue().dobProperty().asString());
         columnPassword.setCellValueFactory(cellData -> cellData.getValue().passwordProperty());
         columnGender.setCellValueFactory(cellData -> cellData.getValue().genderProperty());
         columnRole.setCellValueFactory(cellData -> cellData.getValue().roleProperty());

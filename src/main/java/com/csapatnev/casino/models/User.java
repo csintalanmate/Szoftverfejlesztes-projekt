@@ -3,7 +3,6 @@ package com.csapatnev.casino.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,9 +36,23 @@ public class User {
 
     private String role;
 
+    // Default constructor for JPA
+    public User() {}
+
+    // Constructor for JavaFX Property Binding
+    public User(Long id, String firstName, String lastName, String email, String password, LocalDate dob, String gender, String role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.dob = dob;
+        this.gender = gender;
+        this.role = role;
+    }
+
     @Override
     public String toString() {
-        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", email="
-                + email + "]";
+        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", email=" + email + "]";
     }
 }

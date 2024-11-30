@@ -4,18 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.LoginController">
     <children>
-        <Label layoutX="28.0" layoutY="85.0" prefHeight="39.0" prefWidth="60.0" text="Email">
+      <ImageView fitHeight="414.0" fitWidth="620.0" layoutX="-9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Login_background.jpg" />
+         </image>
+      </ImageView>
+        <Label layoutX="28.0" layoutY="85.0" prefHeight="39.0" prefWidth="60.0" text="Email" textFill="#fafafa">
          <font>
             <Font size="22.0" />
-
          </font></Label>
-      <TextField layoutX="225.0" layoutY="45.0" prefHeight="25.0" prefWidth="213.0" text="Kérlek jelentkezz be vagy regisztrálj!" />
-        <Label layoutX="28.0" layoutY="134.0" text="Password">
+        <Label layoutX="28.0" layoutY="134.0" text="Password" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font></Label>
@@ -27,5 +33,10 @@
         </Button>
       <Button fx:id="btnSignUp" layoutX="272.0" layoutY="323.0" mnemonicParsing="false" onAction="#signUp" text="Sign up" />
       <PasswordField fx:id="password" layoutX="151.0" layoutY="138.0" prefHeight="25.0" prefWidth="403.0" />
+      <Text fill="WHITE" layoutX="138.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kérlek jelentkezz be vagy regisztrálj!" textAlignment="CENTER" wrappingWidth="348.1761474609375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

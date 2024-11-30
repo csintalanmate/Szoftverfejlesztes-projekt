@@ -12,6 +12,7 @@
         <Label layoutX="28.0" layoutY="85.0" prefHeight="39.0" prefWidth="60.0" text="Email">
          <font>
             <Font size="22.0" />
+
          </font></Label>
       <TextField layoutX="225.0" layoutY="45.0" prefHeight="25.0" prefWidth="213.0" text="Kérlek jelentkezz be vagy regisztrálj!" />
         <Label layoutX="28.0" layoutY="134.0" text="Password">

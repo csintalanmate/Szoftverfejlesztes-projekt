@@ -1,0 +1,1 @@
+A utils csomagban találhatók a segédfüggvények és közös műveletek, amelyeket az alkalmazás különböző részei használnak. Itt általános eszközök, konverterek vagy formázók lehetnek.

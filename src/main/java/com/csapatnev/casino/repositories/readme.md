@@ -1,0 +1,1 @@
+Ebben a csomagban találhatók a JPA Repository-k, amelyek az adatbázis-műveleteket kezelik. Ezek a rétegek felelősek az adatbázisba történő olvasásért, írásért, frissítésért és törlésért (CRUD-műveletek).

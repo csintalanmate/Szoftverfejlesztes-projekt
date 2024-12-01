@@ -26,4 +26,5 @@
     <Button fx:id="btnCreate" layoutX="285.0" layoutY="420.0" text="Create" />
     <Button fx:id="btnUpdate" layoutX="374.0" layoutY="420.0" text="Update" />
     <Button fx:id="btnDelete" layoutX="471.0" layoutY="420.0" text="Delete" />
+   <Button fx:id="btnLogin" layoutX="187.0" layoutY="420.0" mnemonicParsing="false" onAction="#switchToLogin" text="Login" />
 </AnchorPane>

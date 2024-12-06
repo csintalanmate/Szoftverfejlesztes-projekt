@@ -49,13 +49,19 @@ public class LoginController implements Initializable {
         String emailText = email.getText();
         String passwordText = password.getText();
 
-        if (emailText.equals("admin@admin") && passwordText.equals("admin")) {
-            showAlert("Admin Login", "Welcome, Admin!");
-            switchToAdmin();
-        } else if (userService.authenticate(emailText, passwordText)) {
-            showAlert("Success", "Login successful!");
-            switchToMain(); // Switch to the main application scene
-        } else {
+
+        if (userService.authenticate(emailText, passwordText)) {
+            if (emailText.equals("admin@admin") && passwordText.equals("admin")) {
+                showAlert("Admin Login", "Welcome, Admin!");
+                switchToAdmin();
+            }
+            else {
+                showAlert("Success", "Login successful!");
+                switchToMain(); // Switch to the main application scene
+            }
+        }
+
+        else {
             showAlert("Error", "Invalid email or password.");
         }
     }

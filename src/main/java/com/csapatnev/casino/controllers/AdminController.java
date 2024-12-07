@@ -16,6 +16,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
+import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -122,7 +124,14 @@ public class AdminController implements Initializable {
                     {
 
 
-
+                        btnEdit.setOnAction(event -> {
+                            UserFX user = getTableView().getItems().get(getIndex());
+                            try {
+                                handleEditAction(user);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
                         // Delete button action
                         btnDelete.setOnAction(event -> {
                             UserFX user = getTableView().getItems().get(getIndex());
@@ -150,8 +159,8 @@ public class AdminController implements Initializable {
     private void handleDeleteAction(UserFX user) {
         // Confirm the delete action
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete Confirmation");
-        alert.setHeaderText("Are you sure you want to delete this user?");
+        alert.setTitle("Törlés véglegesítése");
+        alert.setHeaderText("Biztos törölni akarod ezt a usert?");
         alert.setContentText(user.firstNameProperty() + " " + user.lastNameProperty());
 
         // Perform delete if confirmed
@@ -160,6 +169,43 @@ public class AdminController implements Initializable {
             refreshTable();
         }
     }
+
+    private void handleEditAction(UserFX user) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Update.fxml"));
+
+        loader.setControllerFactory(AppContextProvider::getBean);
+
+        Parent adminRoot = loader.load();
+        UpdateController controller = loader.getController();
+        controller.setUser(user); // Pass user data to the UpdateController
+
+        Stage stage = (Stage) userTable.getScene().getWindow();
+        stage.setScene(new Scene(adminRoot));
+    }
+
+//        try {
+//            // Load the Edit User FXML
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Update.fxml"));
+//            loader.setControllerFactory(AppContextProvider::getBean);
+//            Parent root = loader.load();
+////
+////            // Pass the selected user to the EditController
+////            UpdateController controller = loader.getController();
+////            controller.setUser(user);
+//
+//            // Show the Edit dialog
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//            stage.setTitle("Edit User");
+//            stage.showAndWait();
+//
+//            // Refresh the table after editing
+//            refreshTable();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
 
     private void refreshTable() {
         List<User> users = userService.findAll();  // Fetch updated user list

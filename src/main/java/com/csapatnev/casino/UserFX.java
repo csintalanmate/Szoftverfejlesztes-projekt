@@ -26,6 +26,19 @@ public class UserFX {
         this.roleProperty.set(user.getRole());
     }
 
+    public User toUser() {
+        return new User(
+                idProperty.get(),
+                firstNameProperty.get(),
+                lastNameProperty.get(),
+                emailProperty.get(),
+                passwordProperty.get(),
+                dobProperty.get(),
+                genderProperty.get(),
+                roleProperty.get()
+        );
+    }
+
     // Getters for JavaFX properties
     public LongProperty idProperty() {
         return idProperty;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.UpdateController">
+    <TextField fx:id="firstName" layoutX="222.0" layoutY="34.0" promptText="Vezetéknév" />
+    <TextField fx:id="lastName" layoutX="222.0" layoutY="76.0" promptText="Keresztnév" />
+    <DatePicker fx:id="dob" layoutX="222.0" layoutY="148.0" promptText="Születési dátum" />
+    <TextField fx:id="email" layoutX="222.0" layoutY="186.0" promptText="E-mail" />
+    <RadioButton fx:id="male" layoutX="226.0" layoutY="122.0" mnemonicParsing="false" text="Férfi" />
+    <RadioButton fx:id="female" layoutX="301.0" layoutY="122.0" mnemonicParsing="false" text="Nő" />
+    <Button fx:id="btnSave" layoutX="256.0" layoutY="319.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="66.0" text="Mentés" />
+    <PasswordField fx:id="password" layoutX="222.0" layoutY="226.0" promptText="Jelszó" />
+   <PasswordField fx:id="role" layoutX="222.0" layoutY="272.0" promptText="Role" />
+
+</AnchorPane>

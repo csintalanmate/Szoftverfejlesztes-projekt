@@ -16,6 +16,6 @@
     <RadioButton fx:id="female" layoutX="301.0" layoutY="122.0" mnemonicParsing="false" text="Nő" />
     <Button fx:id="btnSave" layoutX="256.0" layoutY="319.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="66.0" text="Mentés" />
     <PasswordField fx:id="password" layoutX="222.0" layoutY="226.0" promptText="Jelszó" />
-   <PasswordField fx:id="role" layoutX="222.0" layoutY="272.0" promptText="Role" />
+   <TextField fx:id="role" layoutX="222.0" layoutY="272.0" promptText="Role" />
 
 </AnchorPane>

@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="406.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true">
          <image>
-            <Image url="@../images/grey%20background.jpg" />
+            <Image url="@../images/grey_background.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#797979" height="406.0" layoutX="171.0" stroke="BLACK" strokeType="INSIDE" width="246.0" />

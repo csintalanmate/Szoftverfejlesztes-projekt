@@ -14,7 +14,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.UpdateController">
    <ImageView fitHeight="412.0" fitWidth="600.0" pickOnBounds="true">
       <image>
-         <Image url="@../images/grey%20background.jpg" />
+         <Image url="@../images/grey_background.jpg" />
       </image>
    </ImageView>
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c8" height="401.0" layoutX="197.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />

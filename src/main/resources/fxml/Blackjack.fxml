@@ -12,33 +12,38 @@
 <Pane prefHeight="720.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.BlackjackController">
    <ImageView fitHeight="733.0" fitWidth="733.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true">
       <image>
-         <Image url="@../images/grey%20background.jpg" />
+         <Image url="@../images/grey_background.jpg" />
       </image>
    </ImageView>
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000007d" height="80.0" layoutX="255.0" layoutY="614.0" stroke="BLACK" strokeType="INSIDE" width="213.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dddddd" height="106.0" layoutX="159.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dddddd" height="106.0" layoutX="165.0" layoutY="69.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#005c05a5" height="121.0" layoutX="14.0" layoutY="469.0" stroke="BLACK" strokeType="INSIDE" width="693.0" />
-   <Circle fill="#d0ff1f" layoutX="637.0" layoutY="654.0" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
-   <Circle fill="#029021" layoutX="85.0" layoutY="654.0" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
+   <Circle fill="#89ab03b7" layoutX="637.0" layoutY="654.0" radius="53.0" stroke="#868201" strokeType="INSIDE" />
+   <Circle fill="#038f2197" layoutX="85.0" layoutY="654.0" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
     <Button fx:id="hitButton" layoutX="53.0" layoutY="625.0" onAction="#handleHit" prefHeight="59.0" prefWidth="65.0" style="-fx-font-size: 14px;" text="Hit">
       <font>
          <Font name="System Bold Italic" size="26.0" />
       </font></Button>
 
           <!-- Címek -->
-    <Label alignment="CENTER" layoutX="119.0" prefHeight="99.0" prefWidth="482.0" style="-fx-font-size: 72px; -fx-font-weight: bold;" text="Blackjack">
+    <Label alignment="CENTER" layoutX="120.0" layoutY="69.0" prefHeight="99.0" prefWidth="482.0" style="-fx-font-size: 72px; -fx-font-weight: bold;" text="Blackjack">
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000007d" height="25.0" layoutX="269.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
 
           <!-- Játékos Kártyák -->
-    <Label fx:id="playerLabel" layoutX="309.0" layoutY="441.0" style="-fx-font-size: 16px;" text="Player's cards: ">
+    <Label fx:id="playerLabel" layoutX="309.0" layoutY="441.0" style="-fx-font-size: 16px;" text="Player's cards: " textFill="#f8f8f8">
       <font>
          <Font name="System Bold Italic" size="12.0" />
       </font></Label>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#005c056f" height="113.0" layoutX="14.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="693.0" />
 
           <!-- Osztó Kártyák -->
-    <Label fx:id="dealerLabel" layoutX="211.0" layoutY="175.0" style="-fx-font-size: 16px;" text="Dealer's cards: " />
+    <Label fx:id="dealerLabel" layoutX="72.0" layoutY="240.0" prefHeight="59.0" prefWidth="157.0" style="-fx-font-size: 16px;" text="Dealer's cards: " textFill="WHITE">
+      <font>
+         <Font size="28.0" />
+      </font></Label>
 
           <!-- Gombok -->
     <Button fx:id="newGameButton" layoutX="264.0" layoutY="625.0" onAction="#handleNewGame" prefHeight="59.0" prefWidth="192.0" style="-fx-font-size: 14px;" text="New Game" />
@@ -49,6 +54,10 @@
       <font>
          <Font size="42.0" />
       </font></Label>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#005c05a6" height="206.0" layoutX="15.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="693.0" />
+   <Button fx:id="btnSwitchToMain" layoutX="566.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
+      <font>
+         <Font name="System Bold Italic" size="15.0" />
+      </font>
+   </Button>
 
       </Pane>

@@ -12,28 +12,28 @@
    <children>
       <ImageView fitHeight="417.0" fitWidth="614.0" layoutY="-4.0" pickOnBounds="true">
          <image>
-            <Image url="@../images/grey%20background.jpg" />
+            <Image url="@../images/grey_background.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="407.0" layoutX="4.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="373.0" layoutX="4.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Button fx:id="gameSelector" layoutX="15.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToRoulette" prefHeight="57.0" prefWidth="179.0" text="Roulette">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000004e" height="407.0" layoutX="207.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000004e" height="373.0" layoutX="207.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Button fx:id="gameSelector1" layoutX="218.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToSlot" prefHeight="57.0" prefWidth="179.0" text="Spin">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="407.0" layoutX="407.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="373.0" layoutX="407.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Button fx:id="gameSelector2" layoutX="418.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToBlackjack" prefHeight="57.0" prefWidth="179.0" text="BlackJack">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Button>
-      <ImageView fitHeight="298.0" fitWidth="191.0" layoutX="9.0" layoutY="20.0" pickOnBounds="true">
+      <ImageView fitHeight="276.0" fitWidth="191.0" layoutX="9.0" layoutY="42.0" pickOnBounds="true">
          <image>
             <Image url="@../images/Login_background.jpg" />
          </image>
@@ -41,7 +41,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <ImageView fitHeight="298.0" fitWidth="191.0" layoutX="212.0" layoutY="20.0" pickOnBounds="true">
+      <ImageView fitHeight="276.0" fitWidth="191.0" layoutX="212.0" layoutY="42.0" pickOnBounds="true">
          <image>
             <Image url="@../images/Spin.jpg" />
          </image>
@@ -49,7 +49,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <ImageView fitHeight="292.0" fitWidth="191.0" layoutX="412.0" layoutY="23.0" pickOnBounds="true">
+      <ImageView fitHeight="276.0" fitWidth="191.0" layoutX="412.0" layoutY="39.0" pickOnBounds="true">
          <image>
             <Image url="@../images/BlackJack.jpg" />
          </image>
@@ -57,5 +57,11 @@
             <DropShadow />
          </effect>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="32.0" layoutX="4.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="604.0" />
+      <Button fx:id="btnSwitchToMain" layoutX="487.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.AdminController">
    <ImageView fitHeight="510.0" fitWidth="809.0" layoutX="-2.0" layoutY="-3.0" pickOnBounds="true">
       <image>
-         <Image url="@../images/grey%20background.jpg" />
+         <Image url="@../images/grey_background.jpg" />
       </image>
    </ImageView>
 
@@ -23,11 +23,11 @@
             <TableColumn fx:id="columnFirstName" prefWidth="117.0" text="First Name" />
             <TableColumn fx:id="columnLastName" prefWidth="103.0" text="Last Name" />
             <TableColumn fx:id="columnEmail" prefWidth="125.0" text="Email" />
-            <TableColumn fx:id="columnDob" prefWidth="100.0" text="Date of Birth" />
-            <TableColumn fx:id="columnPassword" prefWidth="96.0" text="Password" />
-            <TableColumn fx:id="columnGender" prefWidth="62.0" text="Gender" />
-            <TableColumn fx:id="columnRole" prefWidth="76.0" text="Role" />
-            <TableColumn fx:id="columnActions" prefWidth="65.0" text="Actions" />
+            <TableColumn fx:id="columnDob" prefWidth="86.0" text="Date of Birth" />
+            <TableColumn fx:id="columnPassword" prefWidth="89.0" text="Password" />
+            <TableColumn fx:id="columnGender" prefWidth="65.0" text="Gender" />
+            <TableColumn fx:id="columnRole" prefWidth="74.0" text="Role" />
+            <TableColumn fx:id="columnActions" prefWidth="94.0" text="Actions" />
 
 
         </columns>

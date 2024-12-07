@@ -18,10 +18,10 @@
 <AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.SlotMachineController">
    <ImageView fitHeight="700.0" fitWidth="900.0" pickOnBounds="true">
       <image>
-         <Image url="@../images/grey%20background.jpg" />
+         <Image url="@../images/grey_background.jpg" />
       </image>
    </ImageView>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000a7" height="200.0" layoutX="47.0" layoutY="238.0" stroke="BLACK" strokeType="INSIDE" width="828.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000a7" height="200.0" layoutX="222.0" layoutY="238.0" stroke="BLACK" strokeType="INSIDE" width="469.0" />
     <GridPane hgap="10" layoutX="256.0" layoutY="64.0" prefHeight="538.0" prefWidth="412.0" vgap="10" AnchorPane.leftAnchor="256.0" AnchorPane.rightAnchor="175.0">
 
         <Label fx:id="slot1_1" style="-fx-font-size: 100; -fx-border-color: black; -fx-border-width: 5; -fx-background-color: white; -fx-padding: 10;" text="🍒" GridPane.columnIndex="0" GridPane.rowIndex="0">
@@ -84,7 +84,7 @@
       <font>
          <Font name="System Bold Italic" size="24.0" />
       </font></Button>
-    <Button fx:id="btnSwitchToMain" layoutX="53.0" layoutY="51.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
+    <Button fx:id="btnSwitchToMain" layoutX="725.0" layoutY="33.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
       <font>
          <Font name="System Bold Italic" size="15.0" />
       </font></Button>

@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.Button;
+
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +25,6 @@ import java.util.List;
 import java.util.Random;
 
 public class RouletteController {
-
 
 
     @FXML
@@ -41,6 +42,8 @@ public class RouletteController {
     @FXML
     private Rectangle blackRect;
 
+    @FXML
+    private Polygon zeroPanel;
     @FXML
     private Polygon number0Panel;
     @FXML
@@ -193,8 +196,6 @@ public class RouletteController {
     @FXML
     private Circle TokenCircle;
     @FXML
-    private Circle tokenStash;
-    @FXML
     private Button btnSwitchToMain;
     @FXML
     private Text rollText;
@@ -220,14 +221,23 @@ public class RouletteController {
     List<Rectangle> blackrect = new ArrayList<>();
     List<Rectangle> redrect = new ArrayList<>();
     List<Rectangle> transparentrect = new ArrayList<>();
+    private boolean isDragging = false;
+    int finalRandomNumber;
+
+    boolean isBlack;
+
 
     @FXML
     public void initialize() {
 
+        blacktext.setText("");
+        betOnBox = "";
+
+
         TokenCircle.setOnMousePressed(event -> handleMousePressed(event, TokenCircle));
+        TokenCircle.setOnMouseReleased(event -> handleMouseReleased(TokenCircle));
         TokenCircle.setOnMouseDragged(event -> handleMouseDragged(event, TokenCircle, blacktext));
         updateBalance();
-
 
         //region redpoly,rect blackpoly,rect
         transparentrect.add(oddRect);
@@ -323,6 +333,7 @@ public class RouletteController {
         Parent signUpRoot = loader.load();
         Stage stage = (Stage) btnSwitchToMain.getScene().getWindow();
         stage.setScene(new Scene(signUpRoot));
+        stage.centerOnScreen();
     }
 
 
@@ -340,6 +351,7 @@ public class RouletteController {
 
 
 
+
         updateBalance();
         betPlaced = false;
 
@@ -348,7 +360,7 @@ public class RouletteController {
 
 
         int randomNumber = getRandomNumber();
-        randomNumber = 6;
+        //randomNumber = 6; //teszt
 
 
         double turnWheel = randomNumber * 9.7297297297 + 360;
@@ -359,13 +371,9 @@ public class RouletteController {
         rotateTransitionWheel.setCycleCount(1);
         rotateTransitionWheel.setAutoReverse(false); // No reverse
 
-        int finalRandomNumber = randomNumber + startNumber;
+        finalRandomNumber = randomNumber + startNumber;
         startNumber = finalRandomNumber;
-        rotateTransitionWheel.setOnFinished(event -> {
-
-            rollText.setText(String.valueOf(order[(finalRandomNumber*2)%37]));
-
-        });
+        rotateTransitionWheel.setOnFinished(event -> rollText.setText(String.valueOf(order[(finalRandomNumber*2)%37])));
 
         RotateTransition rotateTransitionBall = new RotateTransition(Duration.seconds(5), ball);
         rotateTransitionBall.setByAngle(turnWheel); // Spin 360 degrees
@@ -373,10 +381,10 @@ public class RouletteController {
         rotateTransitionBall.setAutoReverse(true);
 
         rotateTransitionBall.setOnFinished(event -> {
-            // Get the current panel to update based on the number that was landed on
             switch (order[((finalRandomNumber * 2) % 37)]) {
                 case 0:
-                    //winPanelColor(number0Panel, number0Rect);
+                    number0Panel.setFill(Color.YELLOW);
+                    zeroPanel.setFill(Color.YELLOW);
                     break;
                 case 1:
                     winPanelColor(number1Panel, number1Rect);
@@ -489,6 +497,14 @@ public class RouletteController {
                 default:
                     break;
             }
+            if(blackNumbers.contains(String.valueOf(order[(finalRandomNumber*2)%37])))
+            {
+                isBlack = true;
+            }
+            if(redNumbers.contains(String.valueOf(order[(finalRandomNumber*2)%37])))
+            {
+                isBlack = false;
+            }
 
             checkForBet(order[(finalRandomNumber*2)%37]);
             updateBalance();
@@ -515,384 +531,380 @@ public class RouletteController {
 
     private void checkForBet(int randomNumber)
     {
+        if(randomNumber % 2 == 0)
+        {
+            evenRect.setFill(Color.YELLOW);
+        }
+        else if(randomNumber % 2 == 1)
+        {
+            oddRect.setFill(Color.YELLOW);
+        }
+        betPlaced = true;
+
+
         if(betOnBox.equals(String.valueOf(randomNumber)))
         {
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*38;
+            betPlaced = false;
         }
-        else if(redNumbers.contains(String.valueOf(randomNumber)) && betOnBox.equals("red"))
+        else if(redNumbers.contains(String.valueOf(randomNumber)) && (!isBlack || betOnBox.equals("red")))
         {
             redRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
-            balance += betAmount*2;
-            if(randomNumber % 2 == 1)
+            if(betOnBox.equals("red"))
             {
-                evenRect.setFill(Color.YELLOW);
+                blacktext.setText("Nyertél");
+                balance += betAmount*2;
+                betPlaced = false;
             }
-            if(randomNumber % 2 == 0)
-            {
-                oddRect.setFill(Color.YELLOW);
-            }
+
         }
-        else if(blackNumbers.contains(String.valueOf(randomNumber)) && betOnBox.equals("black"))
+        else if(blackNumbers.contains(String.valueOf(randomNumber)) && (isBlack || betOnBox.equals("black")))
         {
             blackRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
-            balance += betAmount*2;
-            if(randomNumber % 2 == 1)
+            if(betOnBox.equals("black"))
             {
-                oddRect.setFill(Color.YELLOW);
+                blacktext.setText("Nyertél");
+                balance += betAmount*2;
+                betPlaced = false;
             }
-            if(randomNumber % 2 == 0)
-            {
-                evenRect.setFill(Color.YELLOW);
-            }
+
         }
         else if(betOnBox.equals("odd") && randomNumber % 2 == 1)
         {
             oddRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*2;
+            betPlaced = false;
         }
         else if(betOnBox.equals("even") && randomNumber % 2 == 0)
         {
             evenRect.setFill(Color.YELLOW);
-            tokenText.setText("Nyertél");
+            blacktext.setText("Nyertél");
             balance += betAmount*2;
+            betPlaced = false;
+        }
+        if(betPlaced && !betOnBox.isEmpty())
+        {
+            blacktext.setText("Vesztettél");
+            betPlaced = false;
         }
         else
         {
-            tokenText.setText("Vesztettél");
-
+            betPlaced = false;
         }
+
         updateBalance();
     }
+
 
     private void handleMousePressed(javafx.scene.input.MouseEvent event, Circle circle) {
         offsetX = event.getSceneX() - circle.getCenterX();
         offsetY = event.getSceneY() - circle.getCenterY();
+        isDragging = true;
     }
+    private void handleMouseReleased(Circle circle) {
+        isDragging = false;
+        if(betOnBox.isEmpty())
+        {
+            circle.setCenterX(0);
+            circle.setCenterY(0);
+            token100Text.setX(circle.getCenterX());
+            token100Text.setY(circle.getCenterY());
+            if(betPlaced)
+            {
+                balance += betAmount;
+                betPlaced = false;
+            }
+            updateBalance();
+        }
+
+    }
+
+
 
     String betOnBox;
 
     private void handleMouseDragged(javafx.scene.input.MouseEvent event, Circle circle, Text blacktext) {
-        double newX = event.getSceneX() - offsetX;
-        double newY = event.getSceneY() - offsetY;
-
-
-        circle.setCenterX(newX);
-        circle.setCenterY(newY);
-
-        double circleCenterX = circle.getCenterX();
-        double circleCenterY = circle.getCenterY();
-        double circleRadius = circle.getRadius();
-
-        double tokenStashCenterX = tokenStash.getCenterX();
-        double tokenStashCenterY = tokenStash.getCenterY();
-        double tokenStashRadius = tokenStash.getRadius();
-
-
-        if (checkDistance(circleCenterX,circleCenterY,376,45) <= circleRadius + circleRadius) {
-            circle.setCenterX(376);
-            circle.setCenterY(45);
-            betOnBox = "black";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if (checkDistance(circleCenterX,circleCenterY,276,45) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(276);
-            circle.setCenterY(45);
-            betOnBox = "red";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if (checkDistance(circleCenterX,circleCenterY,176,45) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(176);
-            circle.setCenterY(45);
-            betOnBox = "even";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if (checkDistance(circleCenterX,circleCenterY,476,45) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(476);
-            circle.setCenterY(45);
-            betOnBox = "odd";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,76,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(76);
-            circle.setCenterY(-7);
-            betOnBox = "1";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,76,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(76);
-            circle.setCenterY(-61);
-            betOnBox = "2";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,76,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(76);
-            circle.setCenterY(-115);
-            betOnBox = "3";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,121,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(121);
-            circle.setCenterY(-7);
-            betOnBox = "4";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,121,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(121);
-            circle.setCenterY(-61);
-            betOnBox = "5";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,121,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(121);
-            circle.setCenterY(-115);
-            betOnBox = "6";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,168,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(168);
-            circle.setCenterY(-7);
-            betOnBox = "7";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,168,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(168);
-            circle.setCenterY(-61);
-            betOnBox = "8";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,168,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(168);
-            circle.setCenterY(-115);
-            betOnBox = "9";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,215,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(215);
-            circle.setCenterY(-7);
-            betOnBox = "10";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,215,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(215);
-            circle.setCenterY(-61);
-            betOnBox = "11";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,215,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(215);
-            circle.setCenterY(-115);
-            betOnBox = "12";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,262,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(262);
-            circle.setCenterY(-7);
-            betOnBox = "13";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,262,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(262);
-            circle.setCenterY(-61);
-            betOnBox = "14";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,262,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(262);
-            circle.setCenterY(-115);
-            betOnBox = "15";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,309,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(309);
-            circle.setCenterY(-7);
-            betOnBox = "16";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,309,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(309);
-            circle.setCenterY(-61);
-            betOnBox = "17";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,309,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(309);
-            circle.setCenterY(-115);
-            betOnBox = "18";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,355,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(355);
-            circle.setCenterY(-7);
-            betOnBox = "19";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,355,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(355);
-            circle.setCenterY(-61);
-            betOnBox = "20";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,355,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(355);
-            circle.setCenterY(-115);
-            betOnBox = "21";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,401,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(401);
-            circle.setCenterY(-7);
-            betOnBox = "22";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,401,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(401);
-            circle.setCenterY(-61);
-            betOnBox = "23";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,401,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(401);
-            circle.setCenterY(-115);
-            betOnBox = "24";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,447,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(447);
-            circle.setCenterY(-7);
-            betOnBox = "25";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,447,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(447);
-            circle.setCenterY(-61);
-            betOnBox = "26";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,447,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(447);
-            circle.setCenterY(-115);
-            betOnBox = "27";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,494,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(494);
-            circle.setCenterY(-7);
-            betOnBox = "28";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,494,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(494);
-            circle.setCenterY(-61);
-            betOnBox = "29";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,494,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(494);
-            circle.setCenterY(-115);
-            betOnBox = "30";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,541,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(541);
-            circle.setCenterY(-7);
-            betOnBox = "31";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,541,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(541);
-            circle.setCenterY(-61);
-            betOnBox = "32";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,541,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(541);
-            circle.setCenterY(-115);
-            betOnBox = "33";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,588,-7) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(588);
-            circle.setCenterY(-7);
-            betOnBox = "34";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,588,-61) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(588);
-            circle.setCenterY(-61);
-            betOnBox = "35";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else if(checkDistance(circleCenterX,circleCenterY,588,-115) <= circleRadius + circleRadius)
-        {
-            circle.setCenterX(588);
-            circle.setCenterY(-115);
-            betOnBox = "36";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        else {
-            betOnBox = "";
-            setToken100Text(circle.getCenterX(),circle.getCenterY());
-        }
-        blacktext.setText(betOnBox);
-        if(!(checkDistance(circleCenterX,circleCenterY,0,0) <= circleRadius + circleRadius)&& !betPlaced)
+        if (isDragging)
         {
 
-            balance = balance - betAmount;
-            betPlaced = true;
-            //tokenText.setText("100");
 
+
+            double newX = event.getSceneX() - offsetX;
+            double newY = event.getSceneY() - offsetY;
+
+
+            circle.setCenterX(newX);
+            circle.setCenterY(newY);
+
+            double circleCenterX = circle.getCenterX();
+            double circleCenterY = circle.getCenterY();
+            double circleRadius = circle.getRadius();
+
+
+            if (checkDistance(circleCenterX, circleCenterY, 332, -158) <= circleRadius + circleRadius) {
+                circle.setCenterX(332);
+                circle.setCenterY(-158);
+                betOnBox = "0";
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 376, 45) <= circleRadius + circleRadius) {
+                circle.setCenterX(376);
+                circle.setCenterY(45);
+                betOnBox = "black";
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 276, 45) <= circleRadius + circleRadius) {
+                circle.setCenterX(276);
+                circle.setCenterY(45);
+                betOnBox = "red";
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 176, 45) <= circleRadius + circleRadius) {
+                circle.setCenterX(176);
+                circle.setCenterY(45);
+                betOnBox = "even";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 476, 45) <= circleRadius + circleRadius) {
+                circle.setCenterX(476);
+                circle.setCenterY(45);
+                betOnBox = "odd";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 76, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(76);
+                circle.setCenterY(-7);
+                betOnBox = "1";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 76, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(76);
+                circle.setCenterY(-61);
+                betOnBox = "2";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 76, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(76);
+                circle.setCenterY(-115);
+                betOnBox = "3";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 121, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(121);
+                circle.setCenterY(-7);
+                betOnBox = "4";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 121, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(121);
+                circle.setCenterY(-61);
+                betOnBox = "5";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 121, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(121);
+                circle.setCenterY(-115);
+                betOnBox = "6";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 168, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(168);
+                circle.setCenterY(-7);
+                betOnBox = "7";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 168, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(168);
+                circle.setCenterY(-61);
+                betOnBox = "8";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 168, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(168);
+                circle.setCenterY(-115);
+                betOnBox = "9";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 215, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(215);
+                circle.setCenterY(-7);
+                betOnBox = "10";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 215, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(215);
+                circle.setCenterY(-61);
+                betOnBox = "11";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 215, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(215);
+                circle.setCenterY(-115);
+                betOnBox = "12";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 262, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(262);
+                circle.setCenterY(-7);
+                betOnBox = "13";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 262, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(262);
+                circle.setCenterY(-61);
+                betOnBox = "14";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 262, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(262);
+                circle.setCenterY(-115);
+                betOnBox = "15";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 309, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(309);
+                circle.setCenterY(-7);
+                betOnBox = "16";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 309, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(309);
+                circle.setCenterY(-61);
+                betOnBox = "17";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 309, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(309);
+                circle.setCenterY(-115);
+                betOnBox = "18";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 355, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(355);
+                circle.setCenterY(-7);
+                betOnBox = "19";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 355, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(355);
+                circle.setCenterY(-61);
+                betOnBox = "20";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 355, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(355);
+                circle.setCenterY(-115);
+                betOnBox = "21";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 401, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(401);
+                circle.setCenterY(-7);
+                betOnBox = "22";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 401, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(401);
+                circle.setCenterY(-61);
+                betOnBox = "23";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 401, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(401);
+                circle.setCenterY(-115);
+                betOnBox = "24";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 447, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(447);
+                circle.setCenterY(-7);
+                betOnBox = "25";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 447, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(447);
+                circle.setCenterY(-61);
+                betOnBox = "26";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 447, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(447);
+                circle.setCenterY(-115);
+                betOnBox = "27";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 494, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(494);
+                circle.setCenterY(-7);
+                betOnBox = "28";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 494, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(494);
+                circle.setCenterY(-61);
+                betOnBox = "29";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 494, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(494);
+                circle.setCenterY(-115);
+                betOnBox = "30";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 541, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(541);
+                circle.setCenterY(-7);
+                betOnBox = "31";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 541, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(541);
+                circle.setCenterY(-61);
+                betOnBox = "32";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 541, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(541);
+                circle.setCenterY(-115);
+                betOnBox = "33";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 588, -7) <= circleRadius + circleRadius) {
+                circle.setCenterX(588);
+                circle.setCenterY(-7);
+                betOnBox = "34";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 588, -61) <= circleRadius + circleRadius) {
+                circle.setCenterX(588);
+                circle.setCenterY(-61);
+                betOnBox = "35";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else if (checkDistance(circleCenterX, circleCenterY, 588, -115) <= circleRadius + circleRadius) {
+                circle.setCenterX(588);
+                circle.setCenterY(-115);
+                betOnBox = "36";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            } else {
+                betOnBox = "";
+
+                setToken100Text(circle.getCenterX(), circle.getCenterY());
+            }
+            //blacktext.setText(betOnBox);//test
+            //blacktext.setText(String.valueOf(circle.getCenterX()) + String.valueOf(circle.getCenterY())); teszt
+            if (!(checkDistance(circleCenterX, circleCenterY, 0, 0) <= circleRadius + circleRadius) && !betPlaced) {
+
+                balance = balance - betAmount;
+                betPlaced = true;
+                //tokenText.setText("100");
+
+            }
+
+            updateBalance();
         }
-        if((checkDistance(tokenStashCenterX,tokenStashCenterY,(int)circleCenterX,(int)circleCenterY) <= tokenStashRadius + tokenStashRadius) && betPlaced)
-        {
-            betPlaced = false;
-            balance = balance + betAmount;
-            tokenText.setText("0");
 
-        }
 
-        updateBalance();
     }
 
     private double checkDistance(double circleCenterX, double circleCenterY, int checkX, int checkY)
@@ -935,6 +947,7 @@ public class RouletteController {
         transparentrect.get(i).setFill(Color.TRANSPARENT);
         }
         number0Panel.setFill(Color.GREEN);
+        zeroPanel.setFill(Color.GREEN);
 
     }
 

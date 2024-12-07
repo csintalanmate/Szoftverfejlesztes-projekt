@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.RouletteController">
+<AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.RouletteController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#163756" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1280.0" />
 
@@ -510,16 +510,6 @@
             <Polygon fx:id="black" points="-26.19195556640625, 8.599381446838379, 23.60809326171875, -7.599984169006348, -26.19195556640625, -30.000595092773438, -76.39190673828125, -7.724984169006348" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" />
          </children>
       </GridPane>
-      <Text fx:id="blacktext" layoutX="712.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Text>
-      <Text fx:id="tokenText" layoutX="1108.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Text>
       <Text fx:id="balanceText" layoutX="1108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="29.0" />
@@ -535,9 +525,25 @@
             <Font size="29.0" />
          </font>
       </Text>
+      <Polygon fx:id="zeroPanel" fill="GREEN" layoutX="985.0" layoutY="462.0" points="-40.20001220703125, 39.999969482421875, 43.800048828125, 39.999969482421875, 1.39996337890625, -5.199981689453125" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="zeroText" fill="WHITE" layoutX="979.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
       <Circle fx:id="tokenStash" fill="#945d26" layoutX="657.0" layoutY="641.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="tokenText" layoutX="1108.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
       <Circle fx:id="TokenCircle" fill="#1f93ff" layoutX="657.0" layoutY="641.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
       <Text fx:id="token100Text" layoutX="646.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" />
+      <Text fx:id="blacktext" layoutX="298.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="304.98471069335926">
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Text>
 
 
 

@@ -1,7 +1,9 @@
 package com.csapatnev.casino;
 
 import com.csapatnev.casino.JavaFXApplication;
+import com.csapatnev.casino.utils.AdminInserter;
 import org.h2.tools.Server;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.Connection;
@@ -12,9 +14,12 @@ import java.sql.SQLException;
 public class CasinoApplication {
 	private static Server h2Server; // Store reference to the H2 server
 
+
+
 	public static void main(String[] args) {
 
 		startH2ConsoleServer(); // Start H2 console server manually
+
 		JavaFXApplication.main(args); // Launch JavaFX application
 	}
 

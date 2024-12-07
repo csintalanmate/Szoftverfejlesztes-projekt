@@ -2,6 +2,7 @@ package com.csapatnev.casino.controllers;
 
 import com.csapatnev.casino.AppContextProvider;
 import com.csapatnev.casino.services.UserService;
+import com.csapatnev.casino.utils.AdminInserter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,7 +29,7 @@ public class LoginController implements Initializable {
     private final UserService userService;
 
     @Autowired
-    public LoginController(UserService userService) {
+    public LoginController(UserService userService, AdminInserter adminInserter) {
         this.userService = userService;
     }
 
@@ -43,6 +44,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnSignUp;
+
 
     @FXML
     public void login(ActionEvent event) throws IOException {
@@ -112,6 +114,5 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }

@@ -58,7 +58,7 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="32.0" layoutX="4.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="604.0" />
-      <Button fx:id="btnSwitchToMain" layoutX="487.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
+      <Button fx:id="btnSwitchToMain" layoutX="483.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

@@ -16,7 +16,7 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutX="9.0" layoutY="285.0" mnemonicParsing="false" text="BlackJack">
+      <Button fx:id="gameSelector2" layoutX="9.0" layoutY="285.0" mnemonicParsing="false" onAction="#switchToBlackjack" text="BlackJack">
          <font>
             <Font size="27.0" />
          </font>

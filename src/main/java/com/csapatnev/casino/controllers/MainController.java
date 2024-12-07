@@ -24,6 +24,9 @@ public class MainController {
     @FXML
     private Button gameSelector1;
 
+    @FXML
+    private Button gameSelector2;
+
     @Autowired
     private UserService userService;
 
@@ -41,11 +44,22 @@ public class MainController {
 
         Stage stage = (Stage) gameSelector.getScene().getWindow();
         stage.setScene(new Scene(signUpRoot));
+        stage.centerOnScreen();
     }
 
     @FXML
     public void switchToSlot() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/SlotMachine.fxml"));
+        //loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
+        Parent signUpRoot = loader.load();
+
+        Stage stage = (Stage) gameSelector1.getScene().getWindow();
+        stage.setScene(new Scene(signUpRoot));
+    }
+
+    @FXML
+    public void switchToBlackjack() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Blackjack.fxml"));
         //loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
         Parent signUpRoot = loader.load();
 

@@ -2,6 +2,7 @@ package com.csapatnev.casino.controllers;
 
 import com.csapatnev.casino.AppContextProvider;
 import com.csapatnev.casino.services.UserService;
+import com.csapatnev.casino.utils.AdminInserter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,10 +26,10 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
-    public LoginController(UserService userService) {
+    public LoginController(UserService userService, AdminInserter adminInserter) {
         this.userService = userService;
     }
 
@@ -44,17 +45,37 @@ public class LoginController implements Initializable {
     @FXML
     private Button btnSignUp;
 
+
     @FXML
-    public void login(ActionEvent event) {
+    public void login(ActionEvent event) throws IOException {
         String emailText = email.getText();
         String passwordText = password.getText();
 
+
         if (userService.authenticate(emailText, passwordText)) {
-            showAlert("Success", "Login successful!");
-             // Switch to the main application scene
-        } else {
+            if (emailText.equals("admin@admin") && passwordText.equals("admin")) {
+                showAlert("Admin Login", "Welcome, Admin!");
+                switchToAdmin();
+            }
+            else {
+                showAlert("Success", "Login successful!");
+                switchToMain(); // Switch to the main application scene
+            }
+        }
+
+        else {
             showAlert("Error", "Invalid email or password.");
         }
+    }
+
+    @FXML
+    public void switchToAdmin() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Admin.fxml"));
+        loader.setControllerFactory(AppContextProvider::getBean);
+        Parent adminRoot = loader.load();
+
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.setScene(new Scene(adminRoot));
     }
 
     @FXML
@@ -93,6 +114,5 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }

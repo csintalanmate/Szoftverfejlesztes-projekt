@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="720.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.BlackjackController">
+
+          <!-- Címek -->
+    <Label alignment="CENTER" layoutX="161.0" layoutY="31.0" prefHeight="144.0" prefWidth="482.0" style="-fx-font-size: 72px; -fx-font-weight: bold;" text="Blackjack" />
+
+          <!-- Játékos Kártyák -->
+    <Label fx:id="playerLabel" layoutX="80.0" layoutY="163.0" style="-fx-font-size: 16px;" text="Player's cards: " />
+
+          <!-- Osztó Kártyák -->
+    <Label fx:id="dealerLabel" layoutX="79.0" layoutY="255.0" style="-fx-font-size: 16px;" text="Dealer's cards: " />
+
+          <!-- Gombok -->
+    <Button fx:id="newGameButton" layoutX="317.0" layoutY="555.0" onAction="#handleNewGame" style="-fx-font-size: 14px;" text="New Game" />
+    <Button fx:id="hitButton" layoutX="279.0" layoutY="607.0" onAction="#handleHit" style="-fx-font-size: 14px;" text="Hit" />
+    <Button fx:id="standButton" layoutX="402.0" layoutY="607.0" onAction="#handleStand" style="-fx-font-size: 14px;" text="Stand" />
+
+          <!-- Eredmény -->
+    <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="432.0" prefHeight="99.0" prefWidth="660.0" style="-fx-font-size: 42px; -fx-text-fill: red;" text="">
+      <font>
+         <Font size="42.0" />
+      </font></Label>
+
+      </Pane>

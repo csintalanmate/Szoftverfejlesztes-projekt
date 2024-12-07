@@ -1,9 +1,13 @@
 package com.csapatnev.casino.controllers;
 
+import com.csapatnev.casino.AppContextProvider;
 import com.csapatnev.casino.models.User;
 import com.csapatnev.casino.services.UserService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -11,10 +15,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import javafx.event.ActionEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -52,10 +58,28 @@ public class SignUpController implements Initializable {
     private Button btnSave;
 
     @FXML
+    private Button btnLogin;
+
+    @FXML
     private Button btnReset;
 
     @FXML
     private PasswordField password;
+
+    @FXML
+    void switchToLogin() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+        loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
+        Parent signUpRoot = loader.load();
+
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.setScene(new Scene(signUpRoot));
+    }
+
+    @FXML
+    void backLogin(ActionEvent event) throws IOException {
+        switchToLogin();
+    }
 
     @FXML
     void reset(ActionEvent event) {
@@ -71,8 +95,8 @@ public class SignUpController implements Initializable {
     public void saveUserHelp() {
         // Validate user input
         if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || dob.getValue() == null ||
-                email.getText().isEmpty() || password.getText().isEmpty()) {
-            showAlert("Error", "Please fill in all fields.");
+                email.getText().isEmpty() || !email.getText().contains("@") || password.getText().isEmpty()) {
+            showAlert("Error", "Please fill in all fields properly.");
             return;
         }
 
@@ -107,6 +131,8 @@ public class SignUpController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

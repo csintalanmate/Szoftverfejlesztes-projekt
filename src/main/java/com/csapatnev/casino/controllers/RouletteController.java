@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.Button;
+
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -237,7 +239,6 @@ public class RouletteController {
         TokenCircle.setOnMouseDragged(event -> handleMouseDragged(event, TokenCircle, blacktext));
         updateBalance();
 
-
         //region redpoly,rect blackpoly,rect
         transparentrect.add(oddRect);
         transparentrect.add(evenRect);
@@ -344,6 +345,7 @@ public class RouletteController {
     {
 
         setStartingColors();
+
 
 
 
@@ -582,11 +584,16 @@ public class RouletteController {
             balance += betAmount*2;
             betPlaced = false;
         }
-        if(betPlaced)
+        if(betPlaced && !betOnBox.isEmpty())
         {
             blacktext.setText("Vesztettél");
-
+            betPlaced = false;
         }
+        else
+        {
+            betPlaced = false;
+        }
+
         updateBalance();
     }
 
@@ -884,7 +891,7 @@ public class RouletteController {
 
                 setToken100Text(circle.getCenterX(), circle.getCenterY());
             }
-            blacktext.setText(betOnBox);
+            //blacktext.setText(betOnBox);//test
             //blacktext.setText(String.valueOf(circle.getCenterX()) + String.valueOf(circle.getCenterY())); teszt
             if (!(checkDistance(circleCenterX, circleCenterY, 0, 0) <= circleRadius + circleRadius) && !betPlaced) {
 

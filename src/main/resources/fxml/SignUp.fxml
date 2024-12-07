@@ -6,25 +6,69 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.SignUpController">
    <children>
-      <Label layoutX="266.0" layoutY="24.0" text="Sign up ">
+      <ImageView fitHeight="406.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/grey%20background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#797979" height="406.0" layoutX="171.0" stroke="BLACK" strokeType="INSIDE" width="246.0" />
+      <ImageView fitHeight="406.0" fitWidth="200.0" layoutX="194.0" layoutY="-6.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/SingUp.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47474756" height="45.0" layoutX="219.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+      <Label layoutX="263.0" layoutY="27.0" text="Sign up " textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="firstName" layoutX="224.0" layoutY="74.0" promptText="Vezetéknév" />
-      <TextField fx:id="lastName" layoutX="224.0" layoutY="116.0" promptText="Keresztnév" />
-      <DatePicker fx:id="dob" layoutX="224.0" layoutY="188.0" promptText="Születési dátum" />
-      <TextField fx:id="email" layoutX="224.0" layoutY="226.0" promptText="E-mail" />
-      <RadioButton fx:id="male" layoutX="228.0" layoutY="162.0" mnemonicParsing="false" text="Férfi" />
-      <RadioButton fx:id="female" layoutX="303.0" layoutY="162.0" mnemonicParsing="false" text="Nő" />
-      <Button fx:id="btnSave" layoutX="303.0" layoutY="313.0" mnemonicParsing="false" onAction="#saveUser" prefHeight="25.0" prefWidth="66.0" text="Mentés" />
-      <Button fx:id="btnReset" layoutX="228.0" layoutY="313.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="66.0" text="Reset" />
-      <PasswordField fx:id="password" layoutX="224.0" layoutY="266.0" promptText="Jelszó" />
-      <Button fx:id="btnLogin" layoutX="276.0" layoutY="350.0" mnemonicParsing="false" onAction="#backLogin" text="Login" />
+      <TextField fx:id="firstName" layoutX="226.0" layoutY="89.0" promptText="Vezetéknév">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="lastName" layoutX="224.0" layoutY="128.0" promptText="Keresztnév">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <DatePicker fx:id="dob" layoutX="207.0" layoutY="190.0" promptText="Születési dátum" />
+      <TextField fx:id="email" layoutX="224.0" layoutY="226.0" promptText="E-mail">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47474756" height="31.0" layoutX="225.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+      <RadioButton fx:id="male" layoutX="228.0" layoutY="162.0" mnemonicParsing="false" text="Férfi" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></RadioButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47474756" height="31.0" layoutX="300.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+      <RadioButton fx:id="female" layoutX="303.0" layoutY="162.0" mnemonicParsing="false" text="Nő" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></RadioButton>
+      <Button fx:id="btnSave" layoutX="310.0" layoutY="313.0" mnemonicParsing="false" onAction="#saveUser" prefHeight="25.0" prefWidth="66.0" text="Mentés">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnReset" layoutX="225.0" layoutY="313.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="66.0" text="Reset">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <PasswordField fx:id="password" layoutX="219.0" layoutY="268.0" promptText="Jelszó">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></PasswordField>
+      <Button fx:id="btnLogin" layoutX="215.0" layoutY="361.0" mnemonicParsing="false" onAction="#backLogin" prefHeight="25.0" prefWidth="159.0" text="Login">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

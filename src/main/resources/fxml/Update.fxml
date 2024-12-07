@@ -5,16 +5,29 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.UpdateController">
+   <ImageView fitHeight="412.0" fitWidth="600.0" pickOnBounds="true">
+      <image>
+         <Image url="@../images/grey%20background.jpg" />
+      </image>
+   </ImageView>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c8" height="401.0" layoutX="197.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
     <TextField fx:id="firstName" layoutX="222.0" layoutY="34.0" promptText="Vezetéknév" />
     <TextField fx:id="lastName" layoutX="222.0" layoutY="76.0" promptText="Keresztnév" />
-    <DatePicker fx:id="dob" layoutX="222.0" layoutY="148.0" promptText="Születési dátum" />
+    <DatePicker fx:id="dob" layoutX="210.0" layoutY="149.0" promptText="Születési dátum" />
     <TextField fx:id="email" layoutX="222.0" layoutY="186.0" promptText="E-mail" />
-    <RadioButton fx:id="male" layoutX="226.0" layoutY="122.0" mnemonicParsing="false" text="Férfi" />
-    <RadioButton fx:id="female" layoutX="301.0" layoutY="122.0" mnemonicParsing="false" text="Nő" />
-    <Button fx:id="btnSave" layoutX="256.0" layoutY="319.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="66.0" text="Mentés" />
+    <RadioButton fx:id="male" layoutX="234.0" layoutY="122.0" mnemonicParsing="false" text="Férfi" textFill="WHITE" />
+    <RadioButton fx:id="female" layoutX="303.0" layoutY="122.0" mnemonicParsing="false" text="Nő" textFill="WHITE" />
+    <Button fx:id="btnSave" layoutX="235.0" layoutY="316.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="51.0" prefWidth="123.0" text="Mentés">
+      <font>
+         <Font name="System Bold" size="22.0" />
+      </font></Button>
     <PasswordField fx:id="password" layoutX="222.0" layoutY="226.0" promptText="Jelszó" />
    <TextField fx:id="role" layoutX="222.0" layoutY="272.0" promptText="Role" />
 

@@ -4,38 +4,56 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.LoginController">
     <children>
-      <ImageView fitHeight="414.0" fitWidth="620.0" layoutX="-9.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6b6b6b" height="404.0" layoutX="-2.0" stroke="BLACK" strokeType="INSIDE" width="605.0" />
+      <ImageView fitHeight="382.0" fitWidth="588.0" layoutX="16.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Login_background.jpg" />
          </image>
+         <effect>
+            <BoxBlur />
+         </effect>
       </ImageView>
-        <Label layoutX="28.0" layoutY="85.0" prefHeight="39.0" prefWidth="60.0" text="Email" textFill="#fafafa">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f5c" height="80.0" layoutX="147.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="324.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47474756" height="31.0" layoutX="22.0" layoutY="167.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+        <Label contentDisplay="TOP" layoutX="28.0" layoutY="163.0" prefHeight="39.0" prefWidth="60.0" text="Email" textFill="#fafafa">
          <font>
-            <Font size="22.0" />
+            <Font name="System Bold Italic" size="22.0" />
          </font></Label>
-        <Label layoutX="28.0" layoutY="134.0" text="Password" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47474756" height="31.0" layoutX="25.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+        <Label layoutX="29.0" layoutY="215.0" text="Password" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font name="System Bold" size="22.0" />
          </font></Label>
-        <TextField fx:id="email" layoutX="151.0" layoutY="92.0" prefHeight="25.0" prefWidth="403.0" />
-        <Button fx:id="btnLogin" layoutX="249.0" layoutY="232.0" mnemonicParsing="false" onAction="#login" text="Login">
+        <TextField fx:id="email" layoutX="147.0" layoutY="170.0" prefHeight="25.0" prefWidth="403.0" />
+        <Button fx:id="btnLogin" layoutX="249.0" layoutY="272.0" mnemonicParsing="false" onAction="#login" text="Login">
             <font>
-                <Font size="27.0" />
+                <Font name="System Bold" size="27.0" />
             </font>
         </Button>
-      <Button fx:id="btnSignUp" layoutX="272.0" layoutY="323.0" mnemonicParsing="false" onAction="#signUp" text="Sign up" />
-      <PasswordField fx:id="password" layoutX="151.0" layoutY="138.0" prefHeight="25.0" prefWidth="403.0" />
-      <Text fill="WHITE" layoutX="138.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kérlek jelentkezz be vagy regisztrálj!" textAlignment="CENTER" wrappingWidth="348.1761474609375">
+      <Button fx:id="btnSignUp" layoutX="258.0" layoutY="352.0" mnemonicParsing="false" onAction="#signUp" prefHeight="25.0" prefWidth="90.0" text="Sign up">
          <font>
-            <Font size="20.0" />
+            <Font name="System Italic" size="12.0" />
+         </font></Button>
+      <PasswordField fx:id="password" layoutX="147.0" layoutY="218.0" prefHeight="25.0" prefWidth="403.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f5c" height="39.0" layoutX="111.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="397.0" />
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="94.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kérlek jelentkezz be vagy regisztrálj!" textAlignment="CENTER" wrappingWidth="417.1761474609375">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="187.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Casino" textAlignment="CENTER" wrappingWidth="231.1761474609375">
+         <font>
+            <Font name="System Bold Italic" size="52.0" />
          </font>
       </Text>
     </children>

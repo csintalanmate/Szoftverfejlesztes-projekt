@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.RouletteController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#163756" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1280.0" />
+
+      
+      
+             <Group fx:id="polygonGroupBigRoulette" layoutY="-1.0">
+           <children>
+
+
+                     <Polygon fx:id="number5Panel" fill="RED" layoutX="450" layoutY="350" points=" -2.5852888388776807e-11,250.0,-42.250205080490524,246.40397758692225,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number24Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -42.250205080490524,246.40397758692225,-83.28494868554402,235.71936136526057,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number16Panel" fill="RED" layoutX="450" layoutY="350" points=" -83.28494868554402,235.71936136526057,-121.92373595343852,218.25352829028034,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number33Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -121.92373595343852,218.25352829028034,-157.05499932393937,194.5089385795866,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number1Panel" fill="RED" layoutX="450" layoutY="350" points=" -157.05499932393937,194.5089385795866,-187.66807631320734,165.16868084749052,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number20Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -187.66807631320734,165.16868084749052,-212.88228443335018,131.0768208892716,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number14Panel" fill="RED" layoutX="450" layoutY="350" points=" -212.88228443335018,131.0768208892716,-231.9722568241443,93.21411944503494,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number31Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -231.9722568241443,93.21411944503494,-244.38880973693173,52.669817498884406,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number9Panel" fill="RED" layoutX="450" layoutY="350" points=" -244.38880973693173,52.669817498884406,-249.77474155117255,10.610300798986106,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number22Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -249.77474155117255,10.610300798986106,-247.97510881471237,-31.75445493677314,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number18Panel" fill="RED" layoutX="450" layoutY="350" points=" -247.97510881471237,-31.75445493677314,-239.0416836847961,-73.20569281919187,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number29Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -239.0416836847961,-73.20569281919187,-223.23146453736533,-112.55093620447145,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number7Panel" fill="RED" layoutX="450" layoutY="350" points=" -223.23146453736533,-112.55093620447145,-200.99928259169812,-148.6582940761217,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number28Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -200.99928259169812,-148.6582940761217,-172.98471724433958,-180.48902348867614,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number12Panel" fill="RED" layoutX="450" layoutY="350" points=" -172.98471724433958,-180.48902348867614,-139.9936965343427,-207.1274123109985,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number35Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -139.9936965343427,-207.1274123109985,-102.97531206093389,-227.80712259706297,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number3Panel" fill="RED" layoutX="450" layoutY="350" points=" -102.97531206093389,-227.80712259706297,-62.994515346210356,-241.9332367333932,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number26Panel" fill="BLACK" layoutX="450" layoutY="350" points=" -62.994515346210356,-241.9332367333932,-21.201481118801503,-249.09937213563808,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number0Panel" fill="GREEN" layoutX="450" layoutY="350" points=" -21.201481118801503,-249.09937213563808,21.20148111895584,-249.09937213562495,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number32Panel" fill="RED" layoutX="450" layoutY="350" points=" 21.20148111895584,-249.09937213562495,62.994515346360245,-241.93323673335416,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number15Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 62.994515346360245,-241.93323673335416,102.97531206107502,-227.80712259699916,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number19Panel" fill="RED" layoutX="450" layoutY="350" points=" 102.97531206107502,-227.80712259699916,139.993696534471,-207.12741231091175,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number4Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 139.993696534471,-207.12741231091175,172.98471724445142,-180.48902348856893,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number21Panel" fill="RED" layoutX="450" layoutY="350" points=" 172.98471724445142,-180.48902348856893,200.99928259179035,-148.65829407599702,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number2Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 200.99928259179035,-148.65829407599702,223.23146453743516,-112.55093620433296,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number25Panel" fill="RED" layoutX="450" layoutY="350" points=" 223.23146453743516,-112.55093620433296,239.04168368484156,-73.20569281904355,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number17Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 239.04168368484156,-73.20569281904355,247.97510881473207,-31.75445493661939,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number34Panel" fill="RED" layoutX="450" layoutY="350" points=" 247.97510881473207,-31.75445493661939,249.77474155116596,10.610300799140862,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number6Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 249.77474155116596,10.610300799140862,244.38880973689908,52.66981749903583,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number27Panel" fill="RED" layoutX="450" layoutY="350" points=" 244.38880973689908,52.66981749903583,231.97225682408654,93.21411944517865,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number13Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 231.97225682408654,93.21411944517865,212.882284433269,131.07682088940342,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number36Panel" fill="RED" layoutX="450" layoutY="350" points=" 212.882284433269,131.07682088940342,187.66807631310516,165.1686808476066,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number11Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 187.66807631310516,165.1686808476066,157.05499932381903,194.5089385796838,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number30Panel" fill="RED" layoutX="450" layoutY="350" points=" 157.05499932381903,194.5089385796838,121.92373595330349,218.25352829035577,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number8Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 121.92373595330349,218.25352829035577,83.28494868539823,235.71936136531207,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number23Panel" fill="RED" layoutX="450" layoutY="350" points=" 83.28494868539823,235.71936136531207,42.250205080338134,246.4039775869484,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Polygon fx:id="number10Panel" fill="BLACK" layoutX="450" layoutY="350" points=" 42.250205080338134,246.4039775869484,-2.5852888388776807e-11,250.0,0.0, 0.0" stroke="BLACK" strokeType="INSIDE" />
+               <Text fx:id="numberZero" fill="WHITE" layoutX="438.0" layoutY="136.0" strokeType="OUTSIDE" text="0" textAlignment="CENTER" wrappingWidth="23.268798828125">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+
+               <Text fill="WHITE" layoutX="472.0" layoutY="139.0" rotate="9.72972972972973" strokeType="OUTSIDE" strokeWidth="0.0" text="32" textAlignment="CENTER" wrappingWidth="33.30242657661438">
+               <font><Font name="System Bold" size="28.0" /></font></Text>
+
+               <Text fill="WHITE" layoutX="490.0" layoutY="149.0" rotate="19.4594594594595" strokeType="OUTSIDE" strokeWidth="0.0" text="15" textAlignment="CENTER" wrappingWidth="66.07335710525513">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+
+               <Text fill="WHITE" layoutX="544.0" layoutY="165.0" rotate="29.1891891891892" strokeType="OUTSIDE" strokeWidth="0.0" text="19" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+
+               <Text fill="WHITE" layoutX="584.0" layoutY="184.0" rotate="38.9189189189189" strokeType="OUTSIDE" strokeWidth="0.0" text="4" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="35.0" />
+               </font></Text>
+
+               <Text fill="WHITE" layoutX="604.0" layoutY="211.0" rotate="48.6486486486486" strokeType="OUTSIDE" strokeWidth="0.0" text="21" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+
+               <Text fill="WHITE" layoutX="622.0" layoutY="241.0" rotate="58.3783783783784" strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="CENTER" wrappingWidth="48.49918174743652">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="647.0" layoutY="276.0" rotate="68.1081081081081" strokeType="OUTSIDE" strokeWidth="0.0" text="25" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="659.0" layoutY="314.0" rotate="77.8378378378378" strokeType="OUTSIDE" strokeWidth="0.0" text="17" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="657.0" layoutY="349.0" rotate="87.5675675675676" strokeType="OUTSIDE" strokeWidth="0.0" text="34" textAlignment="CENTER" wrappingWidth="50.157447814941406">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="658.0" layoutY="388.0" rotate="97.2972972972973" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="36.02763366699219">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="643.0" layoutY="425.0" rotate="107.027027027027" strokeType="OUTSIDE" strokeWidth="0.0" text="27" textAlignment="CENTER" wrappingWidth="46.194576263427734">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="639.0" layoutY="457.0" rotate="116.756756756757" strokeType="OUTSIDE" strokeWidth="0.0" text="13" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="610.0" layoutY="499.0" rotate="126.486486486486" strokeType="OUTSIDE" strokeWidth="0.0" text="36" textAlignment="CENTER" wrappingWidth="54.05188024044037">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="589.0" layoutY="525.0" rotate="136.216216216216" strokeType="OUTSIDE" strokeWidth="0.0" text="11" textAlignment="CENTER" wrappingWidth="40.169437408447266">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="561.0" layoutY="550.0" rotate="145.945945945946" strokeType="OUTSIDE" strokeWidth="0.0" text="30" textAlignment="CENTER" wrappingWidth="40.46048355102539">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="535.0" layoutY="574.0" rotate="155.675675675676" strokeType="OUTSIDE" strokeWidth="0.0" text="8" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="485.0" layoutY="584.0" rotate="165.405405405405" strokeType="OUTSIDE" strokeWidth="0.0" text="23" textAlignment="CENTER" wrappingWidth="46.692562103271484">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="454.0" layoutY="588.0" rotate="175.135135135135" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="419.0" layoutY="590.0" rotate="184.864864864865" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="362.0" layoutY="578.0" rotate="194.594594594595" strokeType="OUTSIDE" strokeWidth="0.0" text="24" textAlignment="CENTER" wrappingWidth="62.208444356918335">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="345.0" layoutY="566.0" rotate="204.324324324324" strokeType="OUTSIDE" strokeWidth="0.0" text="16" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="302.0" layoutY="546.0" rotate="214.054054054054" strokeType="OUTSIDE" strokeWidth="0.0" text="33" wrappingWidth="39.60115051269531">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="274.0" layoutY="529.0" rotate="223.783783783784" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="37.00962859392166">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="251.0" layoutY="494.0" rotate="233.513513513514" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="218.0" layoutY="469.0" rotate="243.243243243243" strokeType="OUTSIDE" strokeWidth="0.0" text="14" textAlignment="CENTER" wrappingWidth="54.00945281982422">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="212.0" layoutY="426.0" rotate="252.972972972973" strokeType="OUTSIDE" strokeWidth="0.0" text="31">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="200.0" layoutY="389.0" rotate="262.702702702703" strokeType="OUTSIDE" strokeWidth="0.0" text="9" textAlignment="CENTER" wrappingWidth="37.81790733337402">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="203.0" layoutY="350.0" rotate="272.432432432432" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="209.0" layoutY="314.0" rotate="282.162162162162" strokeType="OUTSIDE" strokeWidth="0.0" text="18">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="221.0" layoutY="276.0" rotate="291.891891891892" strokeType="OUTSIDE" strokeWidth="0.0" text="29">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="247.0" layoutY="241.0" rotate="301.621621621622" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="262.0" layoutY="206.0" rotate="311.351351351351" strokeType="OUTSIDE" strokeWidth="0.0" text="28">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="287.0" layoutY="179.0" rotate="321.081081081081" strokeType="OUTSIDE" strokeWidth="0.0" text="12" textAlignment="CENTER" wrappingWidth="34.782451152801514">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="316.0" layoutY="156.0" rotate="330.810810810811" strokeType="OUTSIDE" strokeWidth="0.0" text="35" textAlignment="CENTER" wrappingWidth="44.351749420166016">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="361.0" layoutY="146.0" rotate="340.540540540541" strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" wrappingWidth="12.812277793884277">
+               <font>
+                  <Font name="Arial Bold" size="35.0" />
+               </font></Text>
+               <Text fill="WHITE" layoutX="387.0" layoutY="131.0" rotate="350.27027027027" strokeType="OUTSIDE" strokeWidth="0.0" text="26" textAlignment="CENTER" wrappingWidth="41.5755500793457">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font></Text>
+            <Circle fill="TRANSPARENT" layoutX="450.0" layoutY="350.0" radius="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fill="#945d26" layoutX="450.0" layoutY="350.0" radius="172.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+
+
+
+
+
+                 </children>
+       </Group>
+
+      <Button fx:id="btnSwitchToMain" layoutX="41.0" layoutY="51.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Button>
+      <Text fx:id="rollText" layoutX="370.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="160.79942321777332">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnRoll" layoutX="757.0" layoutY="51.0" mnemonicParsing="false" onAction="#Roll" prefHeight="26.0" prefWidth="67.0" text="Roll">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Button>
+
+            
+                   <Group fx:id="ball" layoutX="123.0" layoutY="74.0">
+           <Circle fill="TRANSPARENT" layoutX="324.0" layoutY="270.0" radius="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0" />
+
+                                <Circle fill="#e4e4e4" layoutX="324.0" layoutY="86.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+       </Group>
+      <GridPane gridLinesVisible="true" layoutX="712.0" layoutY="502.0" prefHeight="160.0" prefWidth="545.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle fx:id="number2Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number6Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="1" />
+            <Rectangle fx:id="number4Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number8Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number11Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number10Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number13Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number17Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number15Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="4" />
+            <Rectangle fx:id="number20Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number24Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="7" />
+            <Rectangle fx:id="number22Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number26Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number31Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="10" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number28Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number33Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="10" />
+            <Rectangle fx:id="number35Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="11" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number29Rect" arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number36Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="11" />
+            <Rectangle fx:id="number21Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="6" />
+            <Rectangle fx:id="number32Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number27Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="8" />
+            <Rectangle fx:id="number23Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number30Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="9" />
+            <Rectangle fx:id="number25Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number34Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number19Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number18Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="5" />
+            <Rectangle fx:id="number12Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="3" />
+            <Rectangle fx:id="number16Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number14Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number9Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="2" />
+            <Rectangle fx:id="number3Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+            <Rectangle fx:id="number7Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Rectangle fx:id="number5Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Rectangle fx:id="number1Rect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="53.0" stroke="BLACK" strokeType="INSIDE" width="45.0" GridPane.rowIndex="2" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" wrappingWidth="38.10919189453125">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="4" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="34" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="11" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="21" textAlignment="CENTER" wrappingWidth="46.10919189453125" GridPane.columnIndex="6">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="18" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="5">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="15" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="4">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="12" textAlignment="CENTER" wrappingWidth="38.10919189453125" GridPane.columnIndex="3">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="9" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="8" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="11" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="13" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="14" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="16" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="17" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="19" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="20" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="22" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="23" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="24" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="7">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="25" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="26" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="27" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="8">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="28" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="9" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="29" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="30" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="9">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="31" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="10" GridPane.rowIndex="2">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="32" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="10" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="33" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="10">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="35" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="11" GridPane.rowIndex="1">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="36" textAlignment="CENTER" wrappingWidth="43.709228515625" GridPane.columnIndex="11">
+                 <font>
+                     <Font name="Arial Bold" size="34.0" />
+                 </font>
+             </Text>
+         </children>
+      </GridPane>
+      <GridPane gridLinesVisible="true" layoutX="785.0" layoutY="671.0" prefHeight="39.0" prefWidth="400.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle fx:id="evenRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <Rectangle fx:id="oddRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="3" />
+            <Rectangle fx:id="redRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="1" />
+            <Rectangle fx:id="blackRect" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="37.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="2" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="EVEN" textAlignment="CENTER" wrappingWidth="101.33673095703125">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ODD" textAlignment="CENTER" wrappingWidth="101.33673095703125" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Text>
+            <Polygon fill="RED" points="-26.19195556640625, 8.599381446838379, 23.60809326171875, -7.599984169006348, -26.19195556640625, -30.000595092773438, -76.39190673828125, -7.724984169006348" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
+            <Polygon fx:id="black" points="-26.19195556640625, 8.599381446838379, 23.60809326171875, -7.599984169006348, -26.19195556640625, -30.000595092773438, -76.39190673828125, -7.724984169006348" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+      <Text fx:id="blacktext" layoutX="712.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="tokenText" layoutX="1108.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="balanceText" layoutX="1108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="balanceText1" layoutX="936.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="betAmountText" layoutX="936.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet Amount:">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Circle fx:id="tokenStash" fill="#945d26" layoutX="657.0" layoutY="641.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="TokenCircle" fill="#1f93ff" layoutX="657.0" layoutY="641.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="token100Text" layoutX="646.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" />
+
+
+
+
+   </children>
+</AnchorPane>

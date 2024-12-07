@@ -12,10 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -72,6 +72,10 @@ public class AdminController implements Initializable {
     private TableColumn<UserFX, String> columnRole;
 
     @FXML
+    private TableColumn<UserFX, Void> columnActions;
+
+
+    @FXML
     private TableView<UserFX> userTable;
 
     @FXML
@@ -107,7 +111,67 @@ public class AdminController implements Initializable {
         columnPassword.setCellValueFactory(cellData -> cellData.getValue().passwordProperty());
         columnGender.setCellValueFactory(cellData -> cellData.getValue().genderProperty());
         columnRole.setCellValueFactory(cellData -> cellData.getValue().roleProperty());
+
+        columnActions.setCellFactory(new Callback<TableColumn<UserFX, Void>, TableCell<UserFX, Void>>() {
+            @Override
+            public TableCell<UserFX, Void> call(final TableColumn<UserFX, Void> param) {
+                return new TableCell<>() {
+                    private final Button btnEdit = new Button("Edit");
+                    private final Button btnDelete = new Button("Delete");
+
+                    {
+
+
+
+                        // Delete button action
+                        btnDelete.setOnAction(event -> {
+                            UserFX user = getTableView().getItems().get(getIndex());
+                            handleDeleteAction(user);
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            // Layout for buttons
+                            HBox hbox = new HBox(5, btnEdit, btnDelete);
+                            setGraphic(hbox);
+                        }
+                    }
+                };
+            }
+        });
     }
+
+    private void handleDeleteAction(UserFX user) {
+        // Confirm the delete action
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Confirmation");
+        alert.setHeaderText("Are you sure you want to delete this user?");
+        alert.setContentText(user.firstNameProperty() + " " + user.lastNameProperty());
+
+        // Perform delete if confirmed
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            userService.delete(user.idProperty().get());
+            refreshTable();
+        }
+    }
+
+    private void refreshTable() {
+        List<User> users = userService.findAll();  // Fetch updated user list
+        ObservableList<UserFX> userObservableList = FXCollections.observableArrayList();
+
+        for (User user : users) {
+            userObservableList.add(new UserFX(user));  // Convert to UserFX
+        }
+
+        userTable.setItems(userObservableList);
+    }
+
 
     @FXML
     void login(ActionEvent event) throws IOException{

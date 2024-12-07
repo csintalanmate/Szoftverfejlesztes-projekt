@@ -26,6 +26,7 @@ public class JavaFXApplication extends Application {
         UserRepository userRepository = springContext.getBean(UserRepository.class); // Fetch the bean
         if (userRepository.findById(1L).isEmpty()) {
             User admin = new User();
+            admin.setId(1L);
             admin.setFirstName("admin");
             admin.setLastName("admin");
             admin.setEmail("admin@admin");

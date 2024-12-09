@@ -15,6 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -22,6 +24,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Getter
+@Setter
 @Controller
 public class LoginController implements Initializable {
 

@@ -183,29 +183,6 @@ public class AdminController implements Initializable {
         stage.setScene(new Scene(adminRoot));
     }
 
-//        try {
-//            // Load the Edit User FXML
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Update.fxml"));
-//            loader.setControllerFactory(AppContextProvider::getBean);
-//            Parent root = loader.load();
-////
-////            // Pass the selected user to the EditController
-////            UpdateController controller = loader.getController();
-////            controller.setUser(user);
-//
-//            // Show the Edit dialog
-//            Stage stage = new Stage();
-//            stage.setScene(new Scene(root));
-//            stage.setTitle("Edit User");
-//            stage.showAndWait();
-//
-//            // Refresh the table after editing
-//            refreshTable();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
 
     private void refreshTable() {
         List<User> users = userService.findAll();  // Fetch updated user list

@@ -16,6 +16,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import javafx.event.ActionEvent;
@@ -25,6 +27,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+@Getter
+@Setter
 @Controller
 public class SignUpController implements Initializable {
 

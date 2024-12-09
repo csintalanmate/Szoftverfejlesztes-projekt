@@ -1,6 +1,7 @@
 package com.csapatnev.casino.controllers;
 
 import com.csapatnev.casino.AppContextProvider;
+import com.csapatnev.casino.models.User;
 import com.csapatnev.casino.services.UserService;
 import com.csapatnev.casino.utils.AdminInserter;
 import javafx.fxml.FXML;
@@ -24,6 +25,8 @@ import java.util.ResourceBundle;
 
 @Controller
 public class LoginController implements Initializable {
+
+    public Long activeId = (long) -1;
 
     @Autowired
     private final UserService userService;
@@ -58,6 +61,8 @@ public class LoginController implements Initializable {
                 switchToAdmin();
             }
             else {
+                User user = userService.findByEmail(emailText);
+                activeId = user.getId();
                 showAlert("Success", "Login successful!");
                 switchToMain(); // Switch to the main application scene
             }

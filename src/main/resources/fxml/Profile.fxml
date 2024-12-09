@@ -36,22 +36,17 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="65.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
+      <Text layoutX="65.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="65.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
+      <Text layoutX="65.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="65.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Text>
-      <Text layoutX="65.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
+      <Text layoutX="65.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="RIGHT" wrappingWidth="178.13665771484375">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
@@ -71,10 +66,9 @@
          </children>
       </Group>
       <TextField fx:id="email" layoutX="260.0" layoutY="121.0" prefHeight="26.0" prefWidth="171.0" text="example@example.com" />
-      <TextField fx:id="userName" layoutX="260.0" layoutY="164.0" prefHeight="26.0" prefWidth="171.0" text="Username" />
-      <TextField fx:id="firstName" layoutX="260.0" layoutY="201.0" prefHeight="26.0" prefWidth="171.0" text="First Name" />
-      <TextField fx:id="lastName" layoutX="260.0" layoutY="233.0" prefHeight="26.0" prefWidth="171.0" text="Last Name" />
-      <TextField fx:id="password" layoutX="260.0" layoutY="271.0" prefHeight="26.0" prefWidth="171.0" text="Password" />
+      <TextField fx:id="firstName" layoutX="260.0" layoutY="158.0" prefHeight="26.0" prefWidth="171.0" text="First Name" />
+      <TextField fx:id="lastName" layoutX="260.0" layoutY="190.0" prefHeight="26.0" prefWidth="171.0" text="Last Name" />
+      <TextField fx:id="password" layoutX="260.0" layoutY="228.0" prefHeight="26.0" prefWidth="171.0" text="Password" />
       <Button fx:id="updateBtn" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="36.0" prefWidth="135.0" text="Update" />
    </children>
 </AnchorPane>

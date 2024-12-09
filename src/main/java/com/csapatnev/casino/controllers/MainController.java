@@ -39,7 +39,7 @@ public class MainController {
     @FXML
     void switchToProfile(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Profile.fxml"));
-        //loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
+        loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
         Parent signUpRoot = loader.load();
 
         Stage stage = (Stage) profilpic.getScene().getWindow();

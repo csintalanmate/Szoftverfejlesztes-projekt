@@ -193,8 +193,16 @@ public class BlackjackController {
         int numOfDCards = dealerCards.size();
 
         ImageView[] playerPics = {playercard1,playercard2,playercard3,playercard4,playercard5,playercard6,playercard7,playercard8};
-
         ImageView[] dealerPics = {dealercard1,dealercard2,dealercard3,dealercard4,dealercard5,dealercard6,dealercard7,dealercard8};
+
+
+        for (int i  = 0; i < playerPics.length; i++)
+        {
+            playerPics[i].setOpacity(0.0);
+            dealerPics[i].setOpacity(0.0);
+        }
+
+
 
         for(int i = 0; i < numOfPCards && i < 8; i++)
         {
@@ -203,6 +211,7 @@ public class BlackjackController {
             try
             {
                 playerPics[i].setImage(new Image(getClass().getResourceAsStream(imagePath)));
+                playerPics[i].setOpacity(1.0);
             } catch (Exception e){
                 System.out.println("Hiba a kep megnyitasa kozben!");
             }
@@ -217,6 +226,7 @@ public class BlackjackController {
                 try
                 {
                     dealerPics[i].setImage(new Image(getClass().getResourceAsStream(imagePath)));
+                    dealerPics[i].setOpacity(1.0);
                 } catch (Exception e){
                     System.out.println("Hiba a kep megnyitasa kozben!");
                 }
@@ -230,6 +240,7 @@ public class BlackjackController {
                 try
                 {
                     dealerPics[i].setImage(new Image(getClass().getResourceAsStream(imagePath)));
+                    dealerPics[i].setOpacity(1.0);
                 } catch (Exception e){
                     System.out.println("Hiba a kep megnyitasa kozben!");
                 }

@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.io.IOException;
 
@@ -46,7 +48,11 @@ public class ProfileController {
 
     @FXML
     void updateProfile(ActionEvent event) {
-
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() ||
+                email.getText().isEmpty() || !email.getText().contains("@") || password.getText().isEmpty()) {
+            showAlert("Error", "Please fill in all fields properly.");
+            return;
+        }
     }
 
 }

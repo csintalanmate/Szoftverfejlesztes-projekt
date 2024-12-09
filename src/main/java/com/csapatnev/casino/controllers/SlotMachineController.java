@@ -198,8 +198,8 @@ public class SlotMachineController {
     public void switchToMain() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
         loader.setControllerFactory(AppContextProvider::getBean);
-        Parent signUpRoot = loader.load();
+        Parent mainPage = loader.load();
         Stage stage = (Stage) btnSwitchToMain.getScene().getWindow();
-        stage.setScene(new Scene(signUpRoot));
+        stage.setScene(new Scene(mainPage));
     }
 }

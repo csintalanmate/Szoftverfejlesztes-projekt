@@ -21,12 +21,6 @@ public class MainController {
     @FXML
     private Button gameSelector;
 
-    @FXML
-    private Button gameSelector1;
-
-    @FXML
-    private Button gameSelector2;
-
     @Autowired
     private UserService userService;
 
@@ -52,7 +46,7 @@ public class MainController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/SlotMachine.fxml"));
         Parent slotMachineRoot = loader.load();
 
-        Stage stage = (Stage) gameSelector1.getScene().getWindow();
+        Stage stage = (Stage) gameSelector.getScene().getWindow();
         stage.setScene(new Scene(slotMachineRoot));
     }
 
@@ -62,7 +56,7 @@ public class MainController {
         //loader.setControllerFactory(AppContextProvider::getBean);  // Replace with your Spring context provider
         Parent signUpRoot = loader.load();
 
-        Stage stage = (Stage) gameSelector1.getScene().getWindow();
+        Stage stage = (Stage) gameSelector.getScene().getWindow();
         stage.setScene(new Scene(signUpRoot));
     }
 

@@ -49,11 +49,27 @@
         <font>
             <Font size="42.0" />
         </font></Label>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#005c05a6" height="206.0" layoutX="15.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="693.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#005c05a6" height="240.0" layoutX="15.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="693.0" />
 
     <Button fx:id="btnSwitchToMain" layoutX="8.0" layoutY="37.0" mnemonicParsing="false" onAction="#switchToMain" text="Back to the Menu">
         <font>
             <Font name="System Bold Italic" size="15.0" />
         </font></Button>
+   <ImageView fx:id="dealercard1" fitHeight="88.0" fitWidth="65.0" layoutX="31.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard1" fitHeight="88.0" fitWidth="65.0" layoutX="31.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard2" fitHeight="88.0" fitWidth="65.0" layoutX="117.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard2" fitHeight="88.0" fitWidth="65.0" layoutX="117.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard3" fitHeight="88.0" fitWidth="65.0" layoutX="211.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard3" fitHeight="88.0" fitWidth="65.0" layoutX="211.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard4" fitHeight="88.0" fitWidth="65.0" layoutX="297.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard4" fitHeight="88.0" fitWidth="65.0" layoutX="297.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard5" fitHeight="88.0" fitWidth="65.0" layoutX="381.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard5" fitHeight="88.0" fitWidth="65.0" layoutX="381.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard6" fitHeight="88.0" fitWidth="65.0" layoutX="467.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard6" fitHeight="88.0" fitWidth="65.0" layoutX="467.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard7" fitHeight="88.0" fitWidth="65.0" layoutX="549.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard7" fitHeight="88.0" fitWidth="65.0" layoutX="549.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="dealercard8" fitHeight="88.0" fitWidth="65.0" layoutX="635.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="playercard8" fitHeight="88.0" fitWidth="65.0" layoutX="635.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
 
 </Pane>

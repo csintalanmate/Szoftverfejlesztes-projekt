@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import javafx.fxml.FXML;
@@ -17,6 +19,54 @@ import java.util.List;
 
 @Component
 public class BlackjackController {
+
+    @FXML
+    private ImageView playercard1;
+
+    @FXML
+    private ImageView playercard2;
+
+    @FXML
+    private ImageView playercard3;
+
+    @FXML
+    private ImageView playercard4;
+
+    @FXML
+    private ImageView playercard5;
+
+    @FXML
+    private ImageView playercard6;
+
+    @FXML
+    private ImageView playercard7;
+
+    @FXML
+    private ImageView playercard8;
+
+    @FXML
+    private ImageView dealercard1;
+
+    @FXML
+    private ImageView dealercard2;
+
+    @FXML
+    private ImageView dealercard3;
+
+    @FXML
+    private ImageView dealercard4;
+
+    @FXML
+    private ImageView dealercard5;
+
+    @FXML
+    private ImageView dealercard6;
+
+    @FXML
+    private ImageView dealercard7;
+
+    @FXML
+    private ImageView dealercard8;
 
     @FXML
     private Label playerLabel;
@@ -35,12 +85,6 @@ public class BlackjackController {
 
     @FXML
     private Button standButton;
-
-    @FXML
-    private Label playerVal;
-
-    @FXML
-    private Label dealerVal;
 
     @FXML
     private Button btnSwitchToMain;
@@ -63,6 +107,7 @@ public class BlackjackController {
         Collections.shuffle(deck);
         playerCards = new ArrayList<>();
         dealerCards = new ArrayList<>();
+        updateUI();
 
         playerCards.add(deck.remove(0));
         playerCards.add(deck.remove(0));
@@ -143,10 +188,52 @@ public class BlackjackController {
     // UI frissítése
     private void updateUI() {
         playerLabel.setText("Player's cards: " + playerCards);
+
+        int numOfPCards = playerCards.size();
+        int numOfDCards = dealerCards.size();
+
+        ImageView[] playerPics = {playercard1,playercard2,playercard3,playercard4,playercard5,playercard6,playercard7,playercard8};
+
+        ImageView[] dealerPics = {dealercard1,dealercard2,dealercard3,dealercard4,dealercard5,dealercard6,dealercard7,dealercard8};
+
+        for(int i = 0; i < numOfPCards && i < 8; i++)
+        {
+            String card = playerCards.get(i);
+            String imagePath = "/images/cards/" + card.toLowerCase().replace(" ","_") + ".png";
+            try
+            {
+                playerPics[i].setImage(new Image(getClass().getResourceAsStream(imagePath)));
+            } catch (Exception e){
+                System.out.println("Hiba a kep megnyitasa kozben!");
+            }
+        }
+
         if (standButton.isDisabled()) {
             dealerLabel.setText("Dealer's cards: " + dealerCards);
+            for(int i = 0; i < numOfDCards && i < 8; i++)
+            {
+                String card = dealerCards.get(i);
+                String imagePath = "/images/cards/" + card.toLowerCase().replace(" ","_") + ".png";
+                try
+                {
+                    dealerPics[i].setImage(new Image(getClass().getResourceAsStream(imagePath)));
+                } catch (Exception e){
+                    System.out.println("Hiba a kep megnyitasa kozben!");
+                }
+            }
         } else {
             dealerLabel.setText("Dealer's cards: " + dealerCards);
+            for(int i = 0; i < numOfDCards && i < 8; i++)
+            {
+                String card = dealerCards.get(i);
+                String imagePath = "/images/cards/" + card.toLowerCase().replace(" ","_") + ".png";
+                try
+                {
+                    dealerPics[i].setImage(new Image(getClass().getResourceAsStream(imagePath)));
+                } catch (Exception e){
+                    System.out.println("Hiba a kep megnyitasa kozben!");
+                }
+            }
         }
     }
 

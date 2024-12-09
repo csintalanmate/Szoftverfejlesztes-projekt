@@ -5,57 +5,69 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="411.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.MainController">
+
+<Pane prefHeight="438.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csapatnev.casino.controllers.MainController">
    <children>
-      <ImageView fitHeight="417.0" fitWidth="614.0" layoutY="-4.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/grey%20background.jpg" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="407.0" layoutX="4.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Button fx:id="gameSelector" layoutX="15.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToRoulette" prefHeight="57.0" prefWidth="179.0" text="Roulette">
-         <font>
-            <Font name="System Bold Italic" size="27.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000004e" height="407.0" layoutX="207.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Button fx:id="gameSelector1" layoutX="218.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToSlot" prefHeight="57.0" prefWidth="179.0" text="Spin">
-         <font>
-            <Font name="System Bold Italic" size="27.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="407.0" layoutX="407.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Button fx:id="gameSelector2" layoutX="418.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToBlackjack" prefHeight="57.0" prefWidth="179.0" text="BlackJack">
-         <font>
-            <Font name="System Bold Italic" size="27.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="298.0" fitWidth="191.0" layoutX="9.0" layoutY="20.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/Login_background.jpg" />
-         </image>
-         <effect>
-            <DropShadow />
-         </effect>
-      </ImageView>
-      <ImageView fitHeight="298.0" fitWidth="191.0" layoutX="212.0" layoutY="20.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/Spin.jpg" />
-         </image>
-         <effect>
-            <DropShadow />
-         </effect>
-      </ImageView>
-      <ImageView fitHeight="292.0" fitWidth="191.0" layoutX="412.0" layoutY="23.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/BlackJack.jpg" />
-         </image>
-         <effect>
-            <DropShadow />
-         </effect>
-      </ImageView>
+      <AnchorPane layoutY="4.0" prefHeight="411.0" prefWidth="607.0">
+         <children>
+            <ImageView fitHeight="438.0" fitWidth="623.0" layoutY="-4.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/grey%20background.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="395.0" layoutX="5.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Button fx:id="gameSelector" layoutX="15.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToRoulette" prefHeight="57.0" prefWidth="179.0" text="Roulette">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000004e" height="395.0" layoutX="209.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Button fx:id="gameSelector1" layoutX="218.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToSlot" prefHeight="57.0" prefWidth="179.0" text="Spin">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000008b" height="395.0" layoutX="412.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Button fx:id="gameSelector2" layoutX="418.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToBlackjack" prefHeight="57.0" prefWidth="179.0" text="BlackJack">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="298.0" fitWidth="191.0" layoutX="9.0" layoutY="41.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/Login_background.jpg" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="298.0" fitWidth="191.0" layoutX="213.0" layoutY="41.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/Spin.jpg" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="292.0" fitWidth="191.0" layoutX="412.0" layoutY="47.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/BlackJack.jpg" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="profilpic" fitHeight="26.0" fitWidth="27.0" layoutX="577.0" layoutY="1.0" onMouseClicked="#switchToProfile" onMousePressed="#switchToProfile" onMouseReleased="#switchToProfile" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/profile.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
-</AnchorPane>
+</Pane>

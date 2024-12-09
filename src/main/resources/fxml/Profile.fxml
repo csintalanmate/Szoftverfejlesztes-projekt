@@ -21,12 +21,12 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#03030352" height="95.0" layoutX="-6.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="613.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#858585cd" height="329.0" layoutX="138.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="332.0" />
-      <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="178.13665771484375">
+      <Text layoutX="14.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="178.13665771484375">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="79.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Information" wrappingWidth="120.13665771484375">
+      <Text layoutX="240.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Information" wrappingWidth="120.13665771484375">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
@@ -56,12 +56,12 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <Button layoutX="154.0" layoutY="356.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="146.0" text="Back To Main Page">
+      <Button fx:id="mainBtn" layoutX="154.0" layoutY="356.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="36.0" prefWidth="146.0" text="Back To Main Page">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <Group layoutX="139.0" layoutY="29.0">
+      <Group layoutX="303.0" layoutY="43.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d8d8d" height="58.0" layoutX="-42.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
             <Circle fill="#aaaaaa" radius="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" />
@@ -70,21 +70,11 @@
             <QuadCurve controlX="-12.399993896484375" controlY="-18.800003051757812" endX="4.4000091552734375" endY="-30.20000457763672" fill="#828282" layoutX="12.0" layoutY="47.0" startX="-27.399993896484375" startY="-30.20000457763672" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
       </Group>
-      <TextField layoutX="260.0" layoutY="121.0" prefHeight="26.0" prefWidth="171.0" text="example@example.com" />
-      <TextField layoutX="260.0" layoutY="164.0" prefHeight="26.0" prefWidth="171.0" text="Username" />
-      <TextField layoutX="260.0" layoutY="201.0" prefHeight="26.0" prefWidth="171.0" text="First Name" />
-      <TextField layoutX="260.0" layoutY="233.0" prefHeight="26.0" prefWidth="171.0" text="Last Name" />
-      <TextField layoutX="260.0" layoutY="271.0" prefHeight="26.0" prefWidth="171.0" text="Password" />
-      <Button layoutX="322.0" layoutY="356.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="135.0" text="Update" />
-      <Text layoutX="357.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" wrappingWidth="178.13665771484375">
-         <font>
-            <Font name="Arial Bold" size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="460.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="103.7366943359375">
-         <font>
-            <Font name="Arial Bold" size="27.0" />
-         </font>
-      </Text>
+      <TextField fx:id="email" layoutX="260.0" layoutY="121.0" prefHeight="26.0" prefWidth="171.0" text="example@example.com" />
+      <TextField fx:id="userName" layoutX="260.0" layoutY="164.0" prefHeight="26.0" prefWidth="171.0" text="Username" />
+      <TextField fx:id="firstName" layoutX="260.0" layoutY="201.0" prefHeight="26.0" prefWidth="171.0" text="First Name" />
+      <TextField fx:id="lastName" layoutX="260.0" layoutY="233.0" prefHeight="26.0" prefWidth="171.0" text="Last Name" />
+      <TextField fx:id="password" layoutX="260.0" layoutY="271.0" prefHeight="26.0" prefWidth="171.0" text="Password" />
+      <Button fx:id="updateBtn" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="36.0" prefWidth="135.0" text="Update" />
    </children>
 </AnchorPane>

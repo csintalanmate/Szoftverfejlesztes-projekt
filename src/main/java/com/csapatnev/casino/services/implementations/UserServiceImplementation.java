@@ -3,11 +3,15 @@ package com.csapatnev.casino.services.implementations;
 import com.csapatnev.casino.models.User;
 import com.csapatnev.casino.repositories.UserRepository;
 import com.csapatnev.casino.services.UserService;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Getter
+@Setter
 @Service
 public class UserServiceImplementation implements UserService {
     @Autowired

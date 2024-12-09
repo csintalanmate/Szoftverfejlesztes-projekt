@@ -1,18 +1,16 @@
 package com.csapatnev.casino.controllers;
 
-import com.csapatnev.casino.BlackjackApplication;
-import javafx.application.Platform;
+import com.csapatnev.casino.AppContextProvider;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -43,6 +41,9 @@ public class BlackjackController {
 
     @FXML
     private Label dealerVal;
+
+    @FXML
+    private Button btnSwitchToMain;
 
 
     private List<String> deck;
@@ -163,5 +164,14 @@ public class BlackjackController {
         } else {
             resultLabel.setText(playerValue > dealerValue ? "Player Wins!" : "Dealer Wins!");
         }
+    }
+
+    @FXML
+    public void switchToMain() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+        loader.setControllerFactory(AppContextProvider::getBean);
+        Parent mainPage = loader.load();
+        Stage stage = (Stage) btnSwitchToMain.getScene().getWindow();
+        stage.setScene(new Scene(mainPage));
     }
 }

@@ -61,24 +61,24 @@ public class ProfileController {
 
     @FXML
     public void updateProfile(ActionEvent event) {
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() ||
-                email.getText().isEmpty() || !email.getText().matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$") || password.getText().isEmpty()) {
-            showAlert("Error", "Please fill in all fields properly.");
-            return;
-        }
+        //if (firstName.getText().isEmpty() || lastName.getText().isEmpty() ||
+        //        email.getText().isEmpty() || !email.getText().matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$") || password.getText().isEmpty()) {
+        //    showAlert("Error", "Please fill in all fields properly.");
+        //}
+        //else {
+            User user = userService.findByEmail(email.getText());
+            if (user == null) {
+                showAlert("Error", "User not found with this email.");
+                return;
+            }
 
-        User user = userService.findByEmail(email.getText());
-        if (user == null) {
-            showAlert("Error", "User not found with this email.");
-            return;
-        }
+            user.setFirstName(firstName.getText());
+            user.setLastName(lastName.getText());
+            user.setPassword(password.getText());
+            userService.update(user);
 
-        user.setFirstName(firstName.getText());
-        user.setLastName(lastName.getText());
-        user.setPassword(password.getText());
-        userService.update(user);
-
-        showAlert("Success", "Profile updated successfully.");
+            showAlert("Success", "Profile updated successfully.");
+        //}
     }
 
     private void showAlert(String title, String message) {

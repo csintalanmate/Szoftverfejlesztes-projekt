@@ -80,6 +80,12 @@
 
     </GridPane>
 
+       <Label fx:id="resultLabel" layoutX="680.0" layoutY="67.0" prefHeight="58.0" prefWidth="208.0" style="-fx-font-size: 40;" text="" />
+
+       <Label fx:id="winCounterLabel" layoutX="692.0" layoutY="137.0" prefHeight="58.0" prefWidth="208.0" style="-fx-font-size: 30;" text="Wins: 0" /> <!-- Initial text for wins -->
+
+    <Label fx:id="lossCounterLabel" layoutX="692.0" layoutY="180.0" prefHeight="58.0" prefWidth="208.0" style="-fx-font-size: 30;" text="Losses: 0" /> <!-- Initial text for losses -->
+
     <Button layoutX="316.0" layoutY="635.0" onAction="#spin" prefHeight="51.0" prefWidth="302.0" text="Spin" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="282.0">
       <font>
          <Font name="System Bold Italic" size="24.0" />
